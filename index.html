@@ -11,38 +11,55 @@
       padding: 0;
       box-sizing: border-box;
     }
+
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-      background: white;
       color: #333;
       line-height: 1.6;
     }
+
+    a {
+      text-decoration: none;
+      display: flex;
+      width: 100%;
+      color: black;
+      align-items: center;
+      justify-content: center;
+    }
+
     header {
-      background: #fff;
       padding: 20px;
       text-align: center;
-      /* box-shadow: 0 2px 4px rgba(0,0,0,0.1); */
+      background-color: #f8f8f8;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
+
     nav ul {
       list-style: none;
       display: flex;
       justify-content: center;
     }
+
     nav ul li {
       margin: 0 15px;
     }
+
     nav ul li a {
       text-decoration: none;
       color: #333;
       font-weight: bold;
     }
+
+    h3 {
+      margin-top: 30px;
+    }
+
     section {
       padding: 40px 20px;
       text-align: center;
     }
     /* Portfolio Section */
     .portfolio {
-      background: #fff;
       padding: 40px 20px;
     }
     .portfolio h2 {
@@ -65,6 +82,46 @@
       object-fit: contain;
       flex-shrink: 0;
     }
+
+    .software {
+      margin-top: 40px;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+    }
+
+    .softwareimg {
+      width: 40%;
+      height: 100%;
+      object-fit: contain;
+      flex-shrink: 0;
+      border-radius: 10;
+      border-width: 0.5;
+    }
+
+    .description {
+      font-size: 25px;
+      width: 40%;
+    }
+
+    #software1, #software2 {
+      width: 80%;
+      height: auto;
+      gap:20px;
+      background-color: #f8f8f8;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      border-radius: 10px;
+      padding:30px;
+      align-items: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
     /* Pause carousel on hover */
     .carousel:hover {
       cursor: pointer;
@@ -84,26 +141,45 @@
   <!-- Header & Navigation -->
   <header>
     <h1>Tattah Abel Mawunyo</h1>
-    <!-- <nav>
+    <nav>
       <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
+        <li><a href="https://github.com/AbelTattah">Github</a></li>
         <li><a href="#portfolio">Work</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-    </nav> -->
+    </nav>
   </header>
 
   <!-- Home Section -->
 
   <!-- About Section -->
   <section id="about">
-    <p>Welcome to my page, I specialize in creating intuitive, mobile-first UX designs with a minimalist approach.</p>
+    <p>Welcome to my page, I code and create, mobile-first UX designs with a minimalist approach.</p>
   </section>
 
   <!-- Portfolio Section with Carousel -->
   <section id="portfolio" class="portfolio">
     <h2>My Work</h2>
+    <h3>Software</h3>
+    <div class="software">
+      <a href="https://academic-writing-sensei-1.onrender.com/">
+        <div id="software1">
+          <strong class="description">
+             Acasensei, a chatbot for learning Academic writing.
+          </strong>
+          <img class="softwareimg" src="./images/acasoftware.png" alt="Work 1" />
+        </div>
+      </a>
+      <a href="https://github.com/AbelTattah/buddy_">
+        <div id="software2">
+          <strong class="description">
+             Buddy_ a simple python API for books.
+          </strong>
+          <img class="softwareimg" src="./images/API.png" alt="Work 3" />
+        </div>
+      </a>
+    </div>
+    <h3>Designs</h3>
     <div class="carousel" id="carousel">
       <div class="carousel-inner">
         <img src="./images/aca.png" alt="Work 1" />
