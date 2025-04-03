@@ -4,219 +4,128 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tattah Abel Mawunyo</title>
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    /* Reset & basic styles */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-      color: #333;
-      line-height: 1.6;
-    }
-
-    a {
-      text-decoration: none;
-      display: flex;
-      width: 100%;
-      color: black;
-      align-items: center;
-      justify-content: center;
-    }
-
-    header {
-      padding: 20px;
-      text-align: center;
-      background-color: #f8f8f8;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      justify-content: center;
-    }
-
-    nav ul li {
-      margin: 0 15px;
-    }
-
-    nav ul li a {
-      text-decoration: none;
-      color: #333;
-      font-weight: bold;
-    }
-
-    h3 {
-      margin-top: 30px;
-    }
-
-    section {
-      padding: 40px 20px;
-      text-align: center;
-    }
-    /* Portfolio Section */
-    .portfolio {
-      padding: 40px 20px;
-    }
-    .portfolio h2 {
-      margin-bottom: 20px;
-    }
-    /* Carousel Styles */
-    .carousel {
-      position: relative;
-      max-width: 700px;
-      margin: 0 auto;
-      overflow: hidden;
-    }
     .carousel-inner {
-      display: flex;
       transition: transform 0.5s ease-in-out;
     }
-    .carousel-inner img {
-      width: 100%;
-      height: auto;
-      object-fit: contain;
-      flex-shrink: 0;
+    .projects {
+      transition: transform 1s ease-in-out;
     }
 
-    .software {
-      margin-top: 40px;
-      justify-content: center;
-      align-items: center;
-      gap: 40px;
-      display: flex;
-      flex-direction: column;
-      flex-wrap: wrap;
-    }
-
-    .softwareimg {
-      width: 40%;
-      height: 100%;
-      object-fit: contain;
-      flex-shrink: 0;
-      border-radius: 10;
-      border-width: 0.5;
-    }
-
-    .description {
-      font-size: 25px;
-      width: 40%;
-    }
-
-    #software1, #software2 {
-      width: 80%;
-      height: auto;
-      gap:20px;
-      background-color: #f8f8f8;
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: center;
-      border-radius: 10px;
-      padding:30px;
-      align-items: center;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-
-    /* Pause carousel on hover */
-    .carousel:hover {
-      cursor: pointer;
-    }
-    /* Responsive adjustments */
-    @media (max-width: 768px) {
-      nav ul {
-        flex-direction: column;
-      }
-      nav ul li {
-        margin: 10px 0;
-      }
-    }
   </style>
 </head>
-<body>
+<body class="h-full overflow-y-scroll bg-gray-50">
   <!-- Header & Navigation -->
-  <header>
-    <h1>Tattah Abel Mawunyo</h1>
-    <nav>
-      <ul>
-        <li><a href="https://github.com/AbelTattah">Github</a></li>
-        <li><a href="#portfolio">Work</a></li>
-        <li><a href="#contact">Contact</a></li>
+  <header class="flex items-center justify-between bg-blue-500 w-full px-4 sm:px-12 h-16 fixed top-0 z-50">
+    <h1 class="font-bold text-white text-xl">Tattah Abel Mawunyo</h1>
+    <nav class="hidden sm:block">
+      <ul class="flex gap-4 sm:gap-8">
+        <li class="transition-all duration-300 hover:bg-white hover:text-orange-600 px-4 py-2 rounded">
+          <a href="https://github.com/AbelTattah" class="text-white hover:no-underline">GitHub</a>
+        </li>
+        <li class="transition-all duration-300 hover:bg-white hover:text-orange-600 px-4 py-2 rounded">
+          <a href="#portfolio" class="text-white hover:no-underline">Work</a>
+        </li>
+        <li class="transition-all duration-300 hover:bg-white hover:text-orange-600 px-4 py-2 rounded">
+          <a href="#contact" class="text-white hover:no-underline">Contact</a>
+        </li>
       </ul>
     </nav>
   </header>
 
-  <!-- Home Section -->
-
   <!-- About Section -->
-  <section id="about">
-    <p>Welcome to my page, I code and create, mobile-first UX designs with a minimalist approach.</p>
+  <section class="flex items-center justify-center px-4 py-10 mt-12">
+    <p class="text-2xl md:text-4xl font-semibold text-gray-800 max-w-4xl text-center leading-normal">
+      Welcome to my page, I'm a web developer specializing in mobile-first UX designs with a minimalist approach.
+    </p>
   </section>
 
-  <!-- Portfolio Section with Carousel -->
-  <section id="portfolio" class="portfolio">
-    <h2>My Work</h2>
-    <h3>Software</h3>
-    <div class="software">
-      <div id="software1">
-        <strong class="description">
-           Admin Web App for Ride Hailing App
-        </strong>
-        <img class="softwareimg" src="./images/admin.png" alt="Work 1" />
+  <!-- Portfolio Section -->
+  <section id="portfolio" class="px-4 sm:px-8 py-16 max-w-7xl mx-auto">
+    <h2 class="text-3xl font-bold text-gray-800 mb-12 text-center">My Work</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+      <!-- Software Projects -->
+      <div class="projects bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow hover:translate-x-1">
+        <img src="./images/admin.png" alt="Admin Web App" class="w-full h-48 object-cover">
+        <div class="p-6">
+          <h3 class="text-xl font-semibold mb-2">Admin Web App</h3>
+          <p class="text-gray-600">Ride hailing service management system</p>
+        </div>
       </div>
-      <a href="https://academic-writing-sensei-1.onrender.com/">
-        <div id="software1">
-          <strong class="description">
-             Acasensei, a chatbot for learning Academic writing.
-          </strong>
-          <img class="softwareimg" src="./images/acasoftware.png" alt="Work 1" />
+
+      <a href="https://academic-writing-sensei-1.onrender.com/" class="hover:no-underline ">
+        <div class="projects bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-full hover:translate-x-1">
+          <img src="./images/acasoftware.png" alt="Acasensei" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2">Acasensei</h3>
+            <p class="text-gray-600">Academic writing chatbot</p>
+          </div>
         </div>
       </a>
-      <a href="https://github.com/AbelTattah/buddy_">
-        <div id="software2">
-          <strong class="description">
-             Buddy_ a simple python API for books.
-          </strong>
-          <img class="softwareimg" src="./images/API.png" alt="Work 3" />
+
+      <a href="https://github.com/AbelTattah/buddy_" class="hover:no-underline">
+        <div class="projects bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-full hover:translate-x-1">
+          <img src="./images/API.png" alt="Buddy API" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2">Buddy API</h3>
+            <p class="text-gray-600">Python book management API</p>
+          </div>
         </div>
       </a>
     </div>
-    <h3>Designs</h3>
-    <div class="carousel" id="carousel">
-      <div class="carousel-inner">
-        <img src="./images/aca.png" alt="Work 1" />
-        <img src="./images//bisa.png" alt="Work 2" />
-        <img src="./images/kofigpt.png" alt="Work 3" />
-        <img src="./images/smrt.png" alt="Work 3" />
-        <img src="./images/kada.png" alt="Work 3" />
+
+    <!-- Design Carousel -->
+    <div class="mb-20">
+      <h3 class="text-2xl font-semibold text-gray-800 mb-8 text-center">UI Designs</h3>
+      <div class="relative overflow-hidden h-96 rounded-2xl shadow-lg" id="carousel">
+        <div class="carousel-inner flex absolute w-full h-full">
+          <img src="./images/aca.png" alt="Design 1" class="w-full h-full object-cover">
+          <img src="./images/bisa.png" alt="Design 2" class="w-full h-full object-cover">
+          <img src="./images/kofigpt.png" alt="Design 3" class="w-full h-full object-cover">
+          <img src="./images/smrt.png" alt="Design 4" class="w-full h-full object-cover">
+          <img src="./images/kada.png" alt="Design 5" class="w-full h-full object-cover">
+        </div>
       </div>
     </div>
-    <h3>Design Links </h3>
-    <a href="https://www.figma.com/design/w1Vnkog8ZIn2jyNVS63Yka/Aca-Sensei?node-id=0-1&t=Qwq4G0lTwzdJ027i-1">
-     ChatBot Design      
-    </a>
-    <a href="https://www.figma.com/design/tvakhmIZ2qG4T6c9iISdMH/BisaKofi(slightly-edited)?node-id=0-1&t=XAcSdk0Dcf4ENZs5-1">
-     BisaKofi AI Design
-    </a>
-    <a href="https://www.figma.com/design/yiKcSuVKqwYCMOwSHzKS52/KofiGPT?node-id=0-1&t=cr5kqize0tkIwTmM-1">
-     KofiGPT AI Design
-    </a>
-    <a href="https://www.figma.com/design/JNrwSiBKb4eQqAdmIkyCkh/ControlHub?node-id=0-1&t=RBvlGn9AllNHo7S3-1">
-     Control hub Design
-    </a>
-    <a href="https://www.figma.com/design/w6nhi5WBqVYYdIqRSx9gJl/OKADA-PRODUCT-MOCKUP-(Copy)?node-id=15-284&t=uPBaF2GxbINUvu7D-1">
-     Okada Rider App Design
-    </a>
+
+    <!-- Design Links -->
+    <h3 class="text-2xl font-semibold text-gray-800 mb-8 text-center">Design Projects</h3>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <a href="https://www.figma.com/design/w1Vnkog8ZIn2jyNVS63Yka/Aca-Sensei" 
+         class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-4 rounded-lg transition-colors text-center">
+        ChatBot Design
+      </a>
+      <a href="https://www.figma.com/design/tvakhmIZ2qG4T6c9iISdMH/BisaKofi(slightly-edited)" 
+         class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-4 rounded-lg transition-colors text-center">
+        BisaKofi AI Design
+      </a>
+      <a href="https://www.figma.com/design/yiKcSuVKqwYCMOwSHzKS52/KofiGPT" 
+         class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-4 rounded-lg transition-colors text-center">
+        KofiGPT AI Design
+      </a>
+      <a href="https://www.figma.com/design/JNrwSiBKb4eQqAdmIkyCkh/ControlHub" 
+         class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-4 rounded-lg transition-colors text-center">
+        Control Hub Design
+      </a>
+      <a href="https://www.figma.com/design/w6nhi5WBqVYYdIqRSx9gJl/OKADA-PRODUCT-MOCKUP-(Copy)" 
+         class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-4 rounded-lg transition-colors text-center">
+        Okada Rider App Design
+      </a>
+    </div>
   </section>
 
   <!-- Contact Section -->
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Feel free to get in touch: <a href="mailto:amtattah@st.ug.edu.gh">amtattah@st.ug.edu.gh</a></p>
+  <section id="contact" class="bg-blue-500 text-white py-20 px-4">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-6">Get In Touch</h2>
+      <p class="text-xl mb-4">Have a project in mind? Let's collaborate!</p>
+      <a href="mailto:amtattah@st.ug.edu.gh" 
+         class="inline-block bg-white text-blue-500 px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors font-semibold">
+        amtattah@st.ug.edu.gh
+      </a>
+    </div>
   </section>
 
   <!-- Carousel Script -->
@@ -224,27 +133,21 @@
     (function() {
       const carousel = document.getElementById('carousel');
       const inner = carousel.querySelector('.carousel-inner');
-      const images = inner.getElementsByTagName('img');
+      const images = inner.children;
       let index = 0;
       const totalImages = images.length;
-      const intervalTime =3000; // Transition every 3 seconds
-      let interval;
+      const intervalTime = 8000;
 
       function startCarousel() {
-        interval = setInterval(() => {
+        setInterval(() => {
           index = (index + 1) % totalImages;
-          inner.style.transform = 'translateX(-' + (index * 100) + '%)';
+          inner.style.transform = `translateX(-${index * 100}%)`;
         }, intervalTime);
       }
 
-      function stopCarousel() {
-        clearInterval(interval);
-      }
-
-      // Pause on hover and resume on mouse leave
-      carousel.addEventListener('mouseenter', stopCarousel);
+      carousel.addEventListener('mouseenter', () => clearInterval(startCarousel));
       carousel.addEventListener('mouseleave', startCarousel);
-
+      
       startCarousel();
     })();
   </script>
