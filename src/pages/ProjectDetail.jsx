@@ -1,5 +1,6 @@
 import { Link, useParams } from "react-router-dom";
-import { cms, phoneHref, usePageTitle } from "../cms.js";
+import { cms, phoneHref } from "../cms.js";
+import { usePageMeta } from "../lib/meta.js";
 import { StatusBadge } from "../components/StatusBadge.jsx";
 import VideoPlayer from "../components/VideoPlayer.jsx";
 import PreviewPlayer from "../components/PreviewPlayer.jsx";
@@ -57,7 +58,16 @@ export default function ProjectDetail() {
   const { slug } = useParams();
   const project = cms.projects.find((p) => p.slug === slug);
 
-  usePageTitle(project ? project.name : "Not found");
+  usePageMeta(
+    project
+      ? {
+          title: `${project.name} — Abel Tattah`,
+          description: project.tagline,
+          image: project.image,
+          url: `https://abeltattah.vercel.app/#/products/${project.slug}`,
+        }
+      : { title: "Page not found — Abel Tattah" }
+  );
 
   if (!project) return <NotFound />;
 

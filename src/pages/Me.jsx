@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { cms, usePageTitle } from "../cms.js";
+import { cms } from "../cms.js";
+import { usePageMeta } from "../lib/meta.js";
 
 function MeItem({ item }) {
   return (
@@ -35,8 +36,13 @@ function MeItem({ item }) {
 }
 
 export default function Me() {
-  usePageTitle("Me");
   const me = cms.me;
+  usePageMeta({
+    title: "Me — Abel Tattah",
+    description: "A gallery of pictures and clips.",
+    image: (me.items && me.items[0] && me.items[0].src) || "/images/banner.png",
+    url: "https://abeltattah.vercel.app/#/me",
+  });
 
   return (
     <div className="mx-auto max-w-6xl px-5 py-12 sm:px-8">

@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { cms, usePageTitle } from "../cms.js";
+import { cms } from "../cms.js";
+import { usePageMeta } from "../lib/meta.js";
 
 const icons = {
   briefcase: (
@@ -62,7 +63,12 @@ function SectionHeader({ icon, title }) {
 }
 
 export default function Experience() {
-  usePageTitle("Experience");
+  usePageMeta({
+    title: "Experience — Abel Tattah",
+    description:
+      "Full-stack TypeScript developer (React Native, React, NodeJS) with experience across ride-hailing, fintech and project-management software.",
+    url: "https://abeltattah.vercel.app/#/experience",
+  });
   const xp = cms.experience;
   const c = xp.contact;
 

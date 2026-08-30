@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
 import { cms, phoneHref } from "../cms.js";
+import { usePageMeta } from "../lib/meta.js";
 import ProjectCard from "../components/ProjectCard.jsx";
 import {
   upworkUrl,
@@ -28,6 +29,13 @@ function matchFilter(project, filter) {
 
 export default function Home() {
   const [filter, setFilter] = useState("all");
+
+  usePageMeta({
+    title: "Abel Mawunyo Tattah — Software Products",
+    description:
+      "I design, build, deploy and ship software products. Explore the gallery, watch the builds live, or acquire a product through Upwork.",
+    url: "https://abeltattah.vercel.app/",
+  });
 
   const counts = useMemo(() => {
     const map = { all: cms.projects.length };
