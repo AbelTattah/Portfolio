@@ -1,0 +1,363 @@
+{
+  "site": {
+    "name": "Abel Mawunyo Tattah",
+    "shortName": "Abel Tattah",
+    "role": "Full-stack Developer & Product Builder",
+    "logo": "/images/logo.png",
+    "email": "abeltattahh@gmail.com",
+    "location": "Greater Accra, Ghana",
+    "availability": "Available for freelance & commission work",
+    "socials": [
+      {
+        "label": "Email",
+        "url": "mailto:abeltattahh@gmail.com"
+      }
+    ],
+    "upwork": "https://www.upwork.com/freelancers/~01fc0b183df7bb3ac7?mp_source=share"
+  },
+  "home": {
+    "masthead": {
+      "eyebrow": "Software Products, Engineered End-to-End",
+      "headline": "I don't just write code. I design, build, deploy and ship software products.",
+      "subhead": "Curated apps, platforms and experiments — built with care from first sketch to production. Some are live. A few are for sale.",
+      "primaryCta": {
+        "label": "Browse the gallery",
+        "url": "#gallery"
+      },
+      "secondaryCta": {
+        "label": "Get in touch",
+        "url": "#contact"
+      }
+    },
+    "galleryTitle": "Product Gallery",
+    "galleryNote": "Click any product to explore it in depth, see it running, or discuss acquiring it.",
+    "filters": [
+      {
+        "id": "all",
+        "label": "All"
+      },
+      {
+        "id": "acquisition",
+        "label": "For acquisition"
+      },
+      {
+        "id": "live",
+        "label": "Live"
+      },
+      {
+        "id": "development",
+        "label": "In development"
+      },
+      {
+        "id": "client",
+        "label": "Client projects"
+      },
+      {
+        "id": "experiment",
+        "label": "Experiments"
+      }
+    ],
+    "howTitle": "Make it, own it, ship it.",
+    "howSteps": [
+      {
+        "step": "01",
+        "title": "Design",
+        "text": "UX, UI and product thinking first — interfaces that feel intentional."
+      },
+      {
+        "step": "02",
+        "title": "Build",
+        "text": "Clean full-stack engineering: APIs, databases, frontends, mobile."
+      },
+      {
+        "step": "03",
+        "title": "Deploy",
+        "text": "Real infrastructure, CI/CD and monitoring. Not just demos."
+      },
+      {
+        "step": "04",
+        "title": "Ship",
+        "text": "Live products users can touch today — or acquire and scale."
+      }
+    ],
+    "closingTitle": "Have a product idea — or want to acquire one of mine?",
+    "closingText": "Let's talk. Whether you want to commission a build, discuss a product, or take one off my hands, email works best."
+  },
+  "contact": {
+    "title": "Let's build something worth shipping",
+    "text": "Open to commissions, product discussion and acquisition enquiries. I usually reply within a day.",
+    "emailLabel": "Email me",
+    "locationLabel": "Based in Greater Accra, Ghana"
+  },
+  "footer": {
+    "tagline": "Design · Build · Deploy · Ship",
+    "rights": "© 2026 Abel Mawunyo Tattah. Built by hand, shipped with care."
+  },
+  "projects": [
+    {
+      "slug": "flyerproai",
+      "name": "FlyerPro AI",
+      "tagline": "AI-powered flyer & promo design, in seconds.",
+      "category": "AI Product",
+      "type": "Web App",
+      "status": "acquisition",
+      "statusLabel": "Available for Acquisition",
+      "featured": false,
+      "image": "/images/flyerproai.svg",
+      "gallery": [
+        "/images/flyerproai.svg"
+      ],
+      "overview": "FlyerPro AI turns a plain-language prompt into polished flyers, posters and promo graphics. Users describe their offer — price, date, vibe — and get an on-brand design ready to print or post.",
+      "problem": "Small businesses, event promoters and creators can't afford a designer for every little promotion, and template builders still leave the design work — layout, hierarchy, colour — to them. Most people give up and ship a messy graphic.",
+      "features": [
+        "Prompt-to-flyer generation with layout and hierarchy baked in",
+        "Editable templates for print sizes and social formats",
+        "On-brand styling from a user's logo and colour palette",
+        "Instant export to PNG, PDF and social-ready formats",
+        "Thumbnail and A/B variant generation for campaigns"
+      ],
+      "tech": [
+        "React",
+        "Node.js",
+        "AI APIs",
+        "Canvas rendering"
+      ],
+      "stack": {
+        "Frontend": [
+          "React",
+          "Tailwind CSS"
+        ],
+        "Backend": [
+          "Node.js",
+          "AI generation service"
+        ],
+        "Integrations": [
+          "Export pipeline",
+          "Asset library"
+        ]
+      },
+      "demo": "",
+      "repo": "",
+      "acquirable": true,
+      "priceNote": "Full product + codebase + assets. Right to brand and scale included.",
+      "year": "2026",
+      "video": "https://youtu.be/Q8cyHCaTdrY",
+      "previewVideo": ""
+    },
+    {
+      "slug": "zo-ride",
+      "name": "Zo Ride",
+      "tagline": "Modern, reliable ride-hailing for African cities.",
+      "category": "Mobility",
+      "type": "Mobile App",
+      "status": "development",
+      "statusLabel": "In Development — Available for Acquisition",
+      "featured": true,
+      "image": "/images/zo.png",
+      "gallery": [
+        "/images/zo.png"
+      ],
+      "overview": "Zo Ride is a ride-hailing platform designed around the realities of African urban transport — flexible pricing, motorbike options, cash support and low-data mode. Driver and rider apps, plus a dispatch dashboard.",
+      "problem": "Existing ride-hailing apps are built for global markets and miss local needs: motorbikes, cash payments, shared rides and unreliable connectivity. Riders end up with impractical options and drivers lose earnings.",
+      "features": [
+        "Rider and driver mobile apps",
+        "Real-time dispatch & live tracking",
+        "Motorbike, car and shared-ride options",
+        "Cash and mobile-money payments",
+        "Low-data mode for patchy networks"
+      ],
+      "tech": [
+        "Flutter",
+        "Node.js",
+        "PostgreSQL",
+        "Maps & geofencing"
+      ],
+      "stack": {
+        "Frontend": [
+          "Flutter",
+          "Admin dashboard"
+        ],
+        "Backend": [
+          "Node.js",
+          "PostgreSQL"
+        ],
+        "Infra": [
+          "Maps, geofencing, live dispatch"
+        ]
+      },
+      "demo": "",
+      "repo": "https://github.com/AbelTattah",
+      "acquirable": true,
+      "priceNote": "Codebase, product design and roadmap. Positioned for an operator or seed-stage team.",
+      "year": "2026",
+      "video": "",
+      "previewVideo": ""
+    },
+    {
+      "slug": "sua",
+      "name": "Sua — Study Planner",
+      "tagline": "A student productivity app that actually sticks.",
+      "category": "Productivity",
+      "type": "Mobile App",
+      "status": "live",
+      "statusLabel": "Live on Google Play",
+      "featured": false,
+      "image": "/images/sua.png",
+      "gallery": [
+        "/images/sua.png"
+      ],
+      "overview": "Sua is a study-planning app that breaks semesters into daily, achievable sessions. Built for students who struggle with big workloads, it keeps plans realistic and progress visible.",
+      "problem": "Students over-plan and under-revise. Classic planners set them up to fail with unachievable schedules, and motivation dies when progress is invisible.",
+      "features": [
+        "Semester-to-daily plan breakdown",
+        "Achievement-based session tracking",
+        "Reminder and streak system",
+        "Subject and grade weighting",
+        "Clean, distraction-light interface"
+      ],
+      "tech": [
+        "Flutter",
+        "Firebase"
+      ],
+      "stack": {
+        "Frontend": [
+          "Flutter",
+          "Dart"
+        ],
+        "Backend": [
+          "Firebase"
+        ]
+      },
+      "demo": "https://play.google.com/store/apps/details?id=com.zo.sua",
+      "repo": "",
+      "acquirable": false,
+      "priceNote": "",
+      "year": "2025",
+      "video": "",
+      "previewVideo": ""
+    }
+  ],
+  "experience": {
+    "heading": "Experience & Credentials",
+    "intro": "A full-stack TypeScript developer with hands-on delivery across ride-hailing, fintech and project-management software.",
+    "summary": "Hi, I am Abel. I am currently a Full-Stack TypeScript Developer who specializes in React Native, React and NodeJS. I have had the opportunity to work as a full stack developer on ride hailing, fintech and project management software projects and these experiences have shaped the way I think.",
+    "contact": {
+      "location": "Accra, Ghana",
+      "email": "tattahkmabel@gmail.com",
+      "linkedin": "https://www.linkedin.com/in/abel-t-938a11282",
+      "linkedinLabel": "linkedin.com/in/abel-t-938a11282"
+    },
+    "topSkills": [
+      "Figma",
+      "FinTech",
+      "Agile Application Development"
+    ],
+    "languages": [
+      "English (Professional Working)"
+    ],
+    "certifications": [
+      "AWS Certified Cloud Practitioner",
+      "AWS reStart",
+      "Oracle Cloud Infrastructure",
+      "Generative AI Professional"
+    ],
+    "roles": [
+      {
+        "company": "DuabaLabs",
+        "title": "Full Stack Engineer",
+        "period": "March 2026 – August 2026",
+        "duration": "6 months",
+        "location": "Accra",
+        "bullets": [
+          "Redesigned and developed a project management dashboard, improving operational support for managing diaspora-focused projects in Ghana.",
+          "Leveraged Agentic AI and Claude to accelerate software development, adopting review-driven development practices to improve development efficiency and code quality.",
+          "Applied UX principles across multiple applications to improve usability, user experience, and overall product quality."
+        ],
+        "tech": [
+          "Nodejs",
+          "TypeScript",
+          "Flutter",
+          "Refine Framework",
+          "Claude",
+          "Figma"
+        ]
+      },
+      {
+        "company": "FORTUNE PORTFOLIO LTD",
+        "title": "Full Stack Engineer",
+        "period": "April 2025 – February 2026",
+        "duration": "11 months",
+        "location": "Greater Accra Region, Ghana",
+        "bullets": [
+          "Delivered and integrated multiple systems in a fast-paced Agile/Scrum environment, enabling secure, reliable, and efficient money-transfer operations.",
+          "Revitalized and accelerated multiple stalled software projects, transforming 2 years of development stagnation into successful delivery within 9 months.",
+          "Partnered with 3 developers to improve system reliability, maintaining full functionality while minimizing downtime and service disruptions."
+        ],
+        "tech": [
+          "Nodejs",
+          "TypeScript",
+          "Flutter",
+          "Refine Framework"
+        ]
+      },
+      {
+        "company": "AmaliTech",
+        "title": "Trainee – AWS re/Start",
+        "period": "April 2025 – July 2025",
+        "duration": "4 months",
+        "location": "Accra",
+        "bullets": [
+          "Gained hands-on expertise across 4+ AWS services, including EC2, S3, SES, and VPC, enabling me to leverage cloud infrastructure to solve technical challenges and accelerate innovation for future clients and projects.",
+          "Applied security, reliability, and high-availability best practices through hands-on labs, strengthening understanding of risk mitigation and building more resilient, secure, and sustainable systems."
+        ],
+        "tech": [
+          "AWS EC2",
+          "AWS S3",
+          "AWS IAM"
+        ]
+      },
+      {
+        "company": "KADA Mobility",
+        "title": "Full Stack Developer",
+        "period": "September 2024 – December 2024",
+        "duration": "4 months",
+        "location": "Accra",
+        "bullets": [
+          "Designed and developed a real-time server that facilitated real-time communication between a rider and customer app.",
+          "Gained more exposure to real-time systems."
+        ],
+        "tech": [
+          "React Native",
+          "Expressjs",
+          "MongoDB",
+          "React"
+        ]
+      },
+      {
+        "company": "Techten Planet GH",
+        "title": "Intern",
+        "period": "June 2024 – August 2024",
+        "duration": "3 months",
+        "location": "Dome, Greater Accra Region, Ghana",
+        "bullets": [
+          "Redesigned and updated an IoT React Native mobile application to enable users to control home appliances from their phone.",
+          "Gained exposure to cloud computing fundamentals.",
+          "Facilitated a React Native workshop for 200+ secondary school students in Koforidua."
+        ],
+        "tech": [
+          "React Native",
+          "ExpressJs",
+          "Flask",
+          "Python"
+        ]
+      }
+    ],
+    "education": [
+      {
+        "school": "University of Ghana",
+        "degree": "Bachelor of Science, Computer Science",
+        "period": "2026"
+      }
+    ]
+  }
+}
