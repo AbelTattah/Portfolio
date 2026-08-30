@@ -113,39 +113,21 @@ export default function ProjectDetail() {
             </p>
 
             <div className="mt-4 flex flex-wrap gap-2.5">
-              {project.acquirable ? (
-                project.upwork || upworkUrl() ? (
-                  <>
-                    <UpworkAcquire
-                      acquireUrl={project.upwork}
-                      className="w-full sm:w-auto"
-                    />
-                    {phoneHref() && (
-                      <a
-                        href={phoneHref()}
-                        className="inline-flex items-center justify-center gap-2 rounded-full border border-line bg-surface px-5 py-3 text-sm font-semibold transition-colors hover:border-accent hover:text-accent"
-                      >
-                        {icons.phone}
-                        Call me
-                      </a>
-                    )}
-                  </>
-                ) : (
-                  <a
-                    href={emailHref}
-                    className="inline-flex items-center gap-2 rounded-full bg-emerald-600 px-5 py-2.5 text-sm font-semibold text-white shadow-card transition-colors hover:bg-emerald-700"
-                  >
-                    {icons.mail}
-                    Acquire this product
-                  </a>
-                )
-              ) : phoneHref() ? (
+              {phoneHref() ? (
                 <a
                   href={phoneHref()}
                   className="inline-flex items-center gap-2 rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-white shadow-card transition-colors hover:bg-accent/90"
                 >
                   {icons.phone}
                   Call me
+                </a>
+              ) : project.acquirable ? (
+                <a
+                  href={emailHref}
+                  className="inline-flex items-center gap-2 rounded-full bg-emerald-600 px-5 py-2.5 text-sm font-semibold text-white shadow-card transition-colors hover:bg-emerald-700"
+                >
+                  {icons.mail}
+                  Acquire this product
                 </a>
               ) : (
                 <a
@@ -360,6 +342,14 @@ export default function ProjectDetail() {
                   {icons.mail}
                   Contact / discuss
                 </a>
+              )}
+              {project.acquirable && (project.upwork || upworkUrl()) && (
+                <div className="mt-3">
+                  <UpworkAcquire
+                    acquireUrl={project.upwork}
+                    className="w-full"
+                  />
+                </div>
               )}
             </div>
 
