@@ -6,6 +6,11 @@ import data from "../content/cms.json";
 // hot-reloaded by Vite here and flows straight into the public view.
 export const cms = data;
 
+export function phoneHref() {
+  const p = cms.site.phone;
+  return p ? `tel:+${p.replace(/[^0-9]/g, "")}` : "";
+}
+
 export const STATUS_META = {
   acquisition: {
     label: "Available for Acquisition",

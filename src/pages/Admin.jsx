@@ -307,6 +307,18 @@ function SitePanel({ value, onChange }) {
           onChange={set("email")}
         />
         <Field
+          label="Phone number"
+          value={value.phone || ""}
+          onChange={set("phone")}
+          hint="Powers the Call buttons in the header, closing CTA and footer. Leave empty to hide them."
+        />
+        <Field
+          label="Phone button label"
+          value={value.phoneLabel || ""}
+          onChange={set("phoneLabel")}
+          hint="Defaults to the number itself."
+        />
+        <Field
           label="Upwork profile URL"
           value={value.upwork || ""}
           onChange={set("upwork")}

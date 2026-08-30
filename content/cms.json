@@ -13,7 +13,9 @@
         "url": "mailto:abeltattahh@gmail.com"
       }
     ],
-    "upwork": "https://www.upwork.com/freelancers/~01fc0b183df7bb3ac7?mp_source=share"
+    "upwork": "https://www.upwork.com/freelancers/~01fc0b183df7bb3ac7?mp_source=share",
+    "phone": "+233248252770",
+    "phoneLabel": "Call me"
   },
   "home": {
     "masthead": {
@@ -127,16 +129,15 @@
           "React",
           "Tailwind CSS"
         ],
-        "Backend": [
-          "Node.js",
-          "AI generation service"
-        ],
         "Integrations": [
           "Export pipeline",
           "Asset library"
+        ],
+        "Backend": [
+          "Deno, Supabase, Paystack"
         ]
       },
-      "demo": "",
+      "demo": "https://www.flyerproai.online/",
       "repo": "",
       "acquirable": true,
       "priceNote": "Full product + codebase + assets. Right to brand and scale included.",
@@ -177,12 +178,11 @@
           "Flutter",
           "Admin dashboard"
         ],
-        "Backend": [
-          "Node.js",
-          "PostgreSQL"
-        ],
         "Infra": [
           "Maps, geofencing, live dispatch"
+        ],
+        "Backend": [
+          "Deno,Supabase,PayStack"
         ]
       },
       "demo": "",
@@ -190,7 +190,7 @@
       "acquirable": true,
       "priceNote": "Codebase, product design and roadmap. Positioned for an operator or seed-stage team.",
       "year": "2026",
-      "video": "",
+      "video": "https://youtu.be/BwKZnJVQgdY",
       "previewVideo": ""
     },
     {
@@ -212,20 +212,14 @@
         "Semester-to-daily plan breakdown",
         "Achievement-based session tracking",
         "Reminder and streak system",
-        "Subject and grade weighting",
         "Clean, distraction-light interface"
       ],
       "tech": [
-        "Flutter",
-        "Firebase"
+        "React"
       ],
       "stack": {
         "Frontend": [
-          "Flutter",
-          "Dart"
-        ],
-        "Backend": [
-          "Firebase"
+          "React Native"
         ]
       },
       "demo": "https://play.google.com/store/apps/details?id=com.zo.sua",
