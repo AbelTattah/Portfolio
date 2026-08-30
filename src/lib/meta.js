@@ -11,7 +11,7 @@ export function absoluteAsset(src) {
 }
 
 function setMeta(attr, key, value) {
-  const el = document.head.querySelector(`${attr}="${key}"`);
+  const el = document.head.querySelector(`meta[${attr}="${key}"]`);
   if (!el) {
     const created = document.createElement("meta");
     created.setAttribute(attr, key);
