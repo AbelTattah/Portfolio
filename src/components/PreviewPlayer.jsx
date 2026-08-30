@@ -36,6 +36,8 @@ export default function PreviewPlayer({ project, imgClassName = "" }) {
         events: {
           onReady: (e) => {
             e.target.mute();
+            const iframe = e.target.getIframe();
+            if (iframe) iframe.style.pointerEvents = "none";
             try {
               e.target.playVideo();
             } catch {
@@ -90,11 +92,10 @@ export default function PreviewPlayer({ project, imgClassName = "" }) {
       {videoId && (
         <div
           className={
-            "absolute inset-0 transition-opacity duration-300 " +
-            (hovered && !failed
-              ? "opacity-100"
-              : "pointer-events-none opacity-0")
+            "pointer-events-none absolute inset-0 transition-opacity duration-300 " +
+            (hovered && !failed ? "opacity-100" : "opacity-0")
           }
+          aria-hidden="true"
         >
           <div ref={slotRef} className="h-full w-full" />
         </div>

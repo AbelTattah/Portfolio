@@ -83,7 +83,7 @@
       }
     ],
     "closingTitle": "Have a product idea — or want to acquire one of mine?",
-    "closingText": "Let's talk. Whether you want to commission a build, discuss a product, or take one off my hands, email works best."
+    "closingText": "Let's talk. Whether you want to commission a build, discuss a product, or take one off my hands, calling works best."
   },
   "contact": {
     "title": "Let's build something worth shipping",
@@ -143,7 +143,8 @@
       "priceNote": "Full product + codebase + assets. Right to brand and scale included.",
       "year": "2026",
       "video": "https://youtu.be/Q8cyHCaTdrY",
-      "previewVideo": ""
+      "previewVideo": "",
+      "upwork": "https://www.upwork.com/services/product/development-it-ai-powered-flyer-promo-design-web-app-2094083735731026566?ref=project_share"
     },
     {
       "slug": "zo-ride",
@@ -151,8 +152,8 @@
       "tagline": "Modern, reliable ride-hailing for African cities.",
       "category": "Mobility",
       "type": "Mobile App",
-      "status": "development",
-      "statusLabel": "In Development — Available for Acquisition",
+      "status": "acquisition",
+      "statusLabel": "Available for Acquisition",
       "featured": true,
       "image": "/images/zo.png",
       "gallery": [
@@ -168,21 +169,19 @@
         "Low-data mode for patchy networks"
       ],
       "tech": [
-        "Flutter",
         "Node.js",
         "PostgreSQL",
         "Maps & geofencing"
       ],
       "stack": {
-        "Frontend": [
-          "Flutter",
-          "Admin dashboard"
-        ],
         "Infra": [
           "Maps, geofencing, live dispatch"
         ],
         "Backend": [
           "Deno,Supabase,PayStack"
+        ],
+        "Frontend": [
+          "ReactNative"
         ]
       },
       "demo": "",
@@ -351,6 +350,47 @@
         "school": "University of Ghana",
         "degree": "Bachelor of Science, Computer Science",
         "period": "2026"
+      }
+    ]
+  },
+  "me": {
+    "heading": "Me",
+    "items": [
+      {
+        "type": "image",
+        "src": "/images/Me now.png",
+        "caption": "Me now",
+        "date": ""
+      },
+      {
+        "type": "image",
+        "src": "/images/expo.jpg",
+        "caption": "Expo",
+        "date": ""
+      },
+      {
+        "type": "image",
+        "src": "/images/DCS UIUX Hackathon.jpeg",
+        "caption": "DCS UIUX Hackathon",
+        "date": ""
+      },
+      {
+        "type": "image",
+        "src": "/images/Techten Planet Intership Recreational Activity.jpg",
+        "caption": "Techten Planet Internship Recreational Activity",
+        "date": ""
+      },
+      {
+        "type": "image",
+        "src": "/images/Controlling Drones is not easy.jpg",
+        "caption": "Controlling Drones is not easy",
+        "date": ""
+      },
+      {
+        "type": "image",
+        "src": "/images/photo_5904305256098021701_y.jpg",
+        "caption": "",
+        "date": ""
       }
     ]
   }

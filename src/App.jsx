@@ -4,6 +4,7 @@ import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
 import Home from "./pages/Home.jsx";
 import Experience from "./pages/Experience.jsx";
+import Me from "./pages/Me.jsx";
 import ProjectDetail from "./pages/ProjectDetail.jsx";
 import Admin from "./pages/Admin.jsx";
 import NotFound from "./pages/NotFound.jsx";
@@ -38,6 +39,7 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/experience" element={<Experience />} />
+            <Route path="/me" element={<Me />} />
             <Route path="/products/:slug" element={<ProjectDetail />} />
             <Route path="/admin" element={<Admin />} />
             <Route path="*" element={<NotFound />} />

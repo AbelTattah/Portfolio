@@ -5,6 +5,7 @@ const NAV = [
   { label: "Work", to: { pathname: "/", hash: "gallery" } },
   { label: "Experience", to: { pathname: "/experience" } },
   { label: "Contact", to: { pathname: "/", hash: "contact" } },
+  { label: "Me", to: { pathname: "/me" } },
 ];
 
 export default function Header() {

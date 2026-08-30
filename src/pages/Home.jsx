@@ -141,32 +141,22 @@ export default function Home() {
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-muted">{h.closingText}</p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-            <a
-              href={`mailto:${s.email}`}
-              className="inline-flex items-center gap-2 rounded-full bg-accent px-7 py-3.5 text-sm font-semibold text-white shadow-card transition-colors hover:bg-accent/90"
-            >
-              {s.email}
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M5 12h14M13 6l6 6-6 6" />
-              </svg>
-            </a>
             {phoneHref() && (
               <a
                 href={phoneHref()}
-                className="inline-flex items-center gap-2 rounded-full border border-line bg-surface px-7 py-3.5 text-sm font-semibold text-ink shadow-card transition-colors hover:border-accent hover:text-accent"
+                className="inline-flex items-center gap-2 rounded-full bg-accent px-7 py-3.5 text-sm font-semibold text-white shadow-card transition-colors hover:bg-accent/90"
               >
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" />
                 </svg>
-                {s.phoneLabel || s.phone}
+                {s.phoneLabel || "Call me"}
+                <span className="hidden font-medium text-white/80 sm:inline">· {s.phone}</span>
               </a>
             )}
+            {upworkUrl() && (
+              <UpworkAcquire className="w-auto" />
+            )}
           </div>
-          {upworkUrl() && (
-            <div className="mx-auto mt-6 max-w-md">
-              <UpworkAcquire />
-            </div>
-          )}
           <p className="mt-6 text-xs text-muted">
             {s.location} · {s.availability}
           </p>

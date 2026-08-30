@@ -61,6 +61,7 @@ const NAV = [
   { id: "home", label: "Home page" },
   { id: "projects", label: "Projects" },
   { id: "experience", label: "Experience" },
+  { id: "me", label: "Me" },
   { id: "contact", label: "Contact" },
   { id: "footer", label: "Footer" },
 ];
@@ -259,6 +260,9 @@ export default function Admin() {
               value={draft.experience}
               onChange={(v) => commit("experience", v)}
             />
+          )}
+          {active === "me" && (
+            <MePanel value={draft.me} onChange={(v) => commit("me", v)} />
           )}
           {active === "contact" && (
             <ContactPanel
@@ -921,6 +925,159 @@ function ProjectEditor({ index, project, count, onUpdate, onMove, onDelete }) {
         </div>
       )}
     </section>
+  );
+}
+
+/* ---------------- Me ---------------- */
+
+const defaultMeItem = {
+  type: "image",
+  src: "/images/me/photo.jpg",
+  caption: "Caption this",
+  date: "",
+};
+
+function MePanel({ value, onChange }) {
+  const set = (k) => (v) => onChange({ ...value, [k]: v });
+  const items = value.items || [];
+
+  return (
+    <div className="space-y-6">
+      <Group title="Me page">
+        <Field label="Heading" value={value.heading} onChange={set("heading")} />
+      </Group>
+
+      <Group title="Gallery items">
+        <div className="flex items-center justify-between gap-3">
+          <p className="text-sm text-muted">
+            Drop media into{" "}
+            <code className="rounded bg-paper px-1.5 py-0.5 text-[12px]">
+              public/images/me/
+            </code>{" "}
+            (or use any URL), then add items below.
+          </p>
+          <button
+            type="button"
+            onClick={() => onChange({ ...value, items: [...items, clone(defaultMeItem)] })}
+            className="shrink-0 rounded-full bg-accent px-4 py-2 text-sm font-semibold text-white shadow-card transition-colors hover:bg-accent/90"
+          >
+            + Add photo / clip
+          </button>
+        </div>
+
+        {items.map((item, i) => (
+          <div key={i} className="rounded-xl border border-line p-4">
+            <div className="flex items-center justify-between">
+              <p className="text-sm font-semibold">Item {i + 1}</p>
+              <div className="flex gap-2">
+                <button
+                  type="button"
+                  onClick={() => {
+                    const next = [...items];
+                    const t = i - 1;
+                    if (t < 0) return;
+                    [next[i], next[t]] = [next[t], next[i]];
+                    onChange({ ...value, items: next });
+                  }}
+                  disabled={i === 0}
+                  className="rounded-md border border-line px-2 py-1 text-xs text-muted disabled:opacity-40"
+                >
+                  ↑
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    const next = [...items];
+                    const t = i + 1;
+                    if (t >= next.length) return;
+                    [next[i], next[t]] = [next[t], next[i]];
+                    onChange({ ...value, items: next });
+                  }}
+                  disabled={i === items.length - 1}
+                  className="rounded-md border border-line px-2 py-1 text-xs text-muted disabled:opacity-40"
+                >
+                  ↓
+                </button>
+                <button
+                  type="button"
+                  onClick={() =>
+                    onChange({ ...value, items: items.filter((_, j) => j !== i) })
+                  }
+                  className="rounded-md border border-red-200 px-2 py-1 text-xs text-red-600 hover:bg-red-50"
+                >
+                  Remove
+                </button>
+              </div>
+            </div>
+            <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-[140px_1fr]">
+              <label className="block">
+                <span className={labelCls}>Type</span>
+                <select
+                  className={inputCls}
+                  value={item.type}
+                  onChange={(v) =>
+                    onChange({
+                      ...value,
+                      items: items.map((x, j) =>
+                        j === i ? { ...x, type: v.target.value } : x
+                      ),
+                    })
+                  }
+                >
+                  <option value="image">Picture</option>
+                  <option value="video">Video clip</option>
+                </select>
+              </label>
+              <Field
+                label="File path or URL"
+                value={item.src}
+                onChange={(v) =>
+                  onChange({
+                    ...value,
+                    items: items.map((x, j) =>
+                      j === i ? { ...x, src: v } : x
+                    ),
+                  })
+                }
+                hint="e.g. /images/me/vacation.jpg or a full https:// URL"
+              />
+              <div className="sm:col-span-2">
+                <Field
+                  label="Caption"
+                  value={item.caption}
+                  onChange={(v) =>
+                    onChange({
+                      ...value,
+                      items: items.map((x, j) =>
+                        j === i ? { ...x, caption: v } : x
+                      ),
+                    })
+                  }
+                />
+              </div>
+              <Field
+                label="Date (optional)"
+                value={item.date}
+                onChange={(v) =>
+                  onChange({
+                    ...value,
+                    items: items.map((x, j) =>
+                      j === i ? { ...x, date: v } : x
+                    ),
+                  })
+                }
+              />
+            </div>
+          </div>
+        ))}
+
+        {items.length === 0 && (
+          <p className="rounded-2xl border border-dashed border-line p-8 text-center text-muted">
+            No pictures or clips yet — add one to start the gallery.
+          </p>
+        )}
+      </Group>
+    </div>
   );
 }
 
