@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { HashRouter, Routes, Route, useLocation } from "react-router-dom";
 import Header from "./components/Header.jsx";
+import TopBanner from "./components/TopBanner.jsx";
 import Footer from "./components/Footer.jsx";
 import Home from "./pages/Home.jsx";
 import Experience from "./pages/Experience.jsx";
@@ -33,6 +34,7 @@ export default function App() {
     <HashRouter>
       <ScrollManager />
       <div className="min-h-screen flex flex-col bg-paper">
+        <TopBanner />
         <Header />
         <main className="flex-1">
           <Routes>

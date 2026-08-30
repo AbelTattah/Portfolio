@@ -148,16 +148,43 @@ export default function Experience() {
           <div className="rounded-2xl border border-line bg-surface p-6 shadow-card">
             <SectionHeader icon={icons.shield} title="Certifications" />
             <ul className="mt-4 space-y-2.5">
-              {xp.certifications.map((c) => (
-                <li key={c} className="flex items-start gap-2.5">
-                  <span className="mt-0.5 text-emerald-600">
-                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M20 6 9 17l-5-5" />
-                    </svg>
-                  </span>
-                  <span className="text-sm font-medium text-ink/85">{c}</span>
-                </li>
-              ))}
+              {xp.certifications.map((c) => {
+                const name = typeof c === "string" ? c : c.name;
+                const url = typeof c === "string" ? "" : c.url || "";
+                const label = (
+                  <>
+                    <span className="mt-0.5 text-emerald-600">
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M20 6 9 17l-5-5" />
+                      </svg>
+                    </span>
+                    <span className="flex min-w-0 items-center gap-1.5 text-sm font-medium text-ink/85">
+                      {name}
+                      {url && (
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="shrink-0 text-muted">
+                          <path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                        </svg>
+                      )}
+                    </span>
+                  </>
+                );
+                return url ? (
+                  <li key={name}>
+                    <a
+                      href={url}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="flex items-start gap-2.5 transition-colors hover:text-accent"
+                    >
+                      {label}
+                    </a>
+                  </li>
+                ) : (
+                  <li key={name} className="flex items-start gap-2.5">
+                    {label}
+                  </li>
+                );
+              })}
             </ul>
           </div>
 

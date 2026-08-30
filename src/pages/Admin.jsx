@@ -303,6 +303,26 @@ function SitePanel({ value, onChange }) {
         />
         <Field label="Logo path" value={value.logo} onChange={set("logo")} />
       </Group>
+      <Group title="Top banner">
+        <Field
+          label="Banner text"
+          textarea
+          rows={2}
+          value={(value.banner && value.banner.text) || ""}
+          onChange={(v) =>
+            onChange({ ...value, banner: { ...(value.banner || {}), text: v } })
+          }
+          hint="Shown in a bright orange strip above the header. Leave empty to hide it."
+        />
+        <Field
+          label="Link (optional)"
+          value={(value.banner && value.banner.href) || ""}
+          onChange={(v) =>
+            onChange({ ...value, banner: { ...(value.banner || {}), href: v } })
+          }
+          hint="Optional — makes the whole banner clickable."
+        />
+      </Group>
       <Group title="Contact">
         <Field
           label="Email"
@@ -1212,11 +1232,75 @@ function ExperiencePanel({ value, onChange }) {
 
       <Group title="Credentials">
         <ListField label="Top skills" value={value.topSkills} onChange={set("topSkills")} />
-        <ListField
-          label="Certifications"
-          value={value.certifications}
-          onChange={set("certifications")}
-        />
+        <div className="rounded-xl border border-line p-4">
+          <div className="flex items-center justify-between">
+            <p className="text-xs font-semibold uppercase tracking-wider text-muted">
+              Certifications
+            </p>
+            <button
+              type="button"
+              onClick={() =>
+                onChange({
+                  ...value,
+                  certifications: [
+                    ...(value.certifications || []),
+                    { name: "New certification", url: "" },
+                  ],
+                })
+              }
+              className="rounded-md border border-dashed border-line px-3 py-1.5 text-xs font-medium text-muted transition-colors hover:border-accent hover:text-accent"
+            >
+              + Add
+            </button>
+          </div>
+          <div className="mt-3 space-y-3">
+            {value.certifications.map((cert, i) => (
+              <div
+                key={i}
+                className="grid grid-cols-1 items-end gap-3 sm:grid-cols-[1fr_1.4fr_auto]"
+              >
+                <Field
+                  label="Name"
+                  value={typeof cert === "string" ? cert : cert.name}
+                  onChange={(v) =>
+                    onChange({
+                      ...value,
+                      certifications: (value.certifications || []).map(
+                        (x, j) => (j === i ? { ...(typeof x === "object" ? x : {}), name: v, url: typeof x === "string" ? "" : x.url || "" } : x)
+                      ),
+                    })
+                  }
+                />
+                <Field
+                  label="Verify link"
+                  value={typeof cert === "string" ? "" : cert.url || ""}
+                  onChange={(v) =>
+                    onChange({
+                      ...value,
+                      certifications: (value.certifications || []).map(
+                        (x, j) => (j === i ? { ...(typeof x === "object" ? x : {}), name: typeof x === "string" ? x : x.name, url: v } : x)
+                      ),
+                    })
+                  }
+                />
+                <button
+                  type="button"
+                  onClick={() =>
+                    onChange({
+                      ...value,
+                      certifications: (value.certifications || []).filter(
+                        (_, j) => j !== i
+                      ),
+                    })
+                  }
+                  className="rounded-lg border border-red-200 px-3 py-2 text-sm text-red-600 transition-colors hover:bg-red-50"
+                >
+                  Remove
+                </button>
+              </div>
+            ))}
+          </div>
+        </div>
         <ListField
           label="Languages"
           value={value.languages}

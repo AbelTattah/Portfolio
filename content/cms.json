@@ -15,7 +15,11 @@
     ],
     "upwork": "https://www.upwork.com/freelancers/~01fc0b183df7bb3ac7?mp_source=share",
     "phone": "+233248252770",
-    "phoneLabel": "Call me"
+    "phoneLabel": "Call me",
+    "banner": {
+      "text": "Currently searching for National Service opportunities as a Fullstack Software Engineer in Ghana.",
+      "href": ""
+    }
   },
   "home": {
     "masthead": {
@@ -249,10 +253,18 @@
       "English (Professional Working)"
     ],
     "certifications": [
-      "AWS Certified Cloud Practitioner",
-      "AWS reStart",
-      "Oracle Cloud Infrastructure",
-      "Generative AI Professional"
+      {
+        "name": "Oracle Generative AI Professional",
+        "url": "https://catalog-education.oracle.com/ords/certview/sharebadge?id=A6AA9D5F67237B729B66899D7A37237192197A31D22A2A48ADF1763AC2AB0C70"
+      },
+      {
+        "name": "AWS Certified Cloud Practitioner",
+        "url": "https://www.credly.com/badges/37486024-5767-4551-ac53-e19ac8fc955f"
+      },
+      {
+        "name": "AWS reStart Graduate",
+        "url": "https://www.credly.com/badges/3f71ed8d-a75d-4b71-b594-c7aad459ae25"
+      }
     ],
     "roles": [
       {
