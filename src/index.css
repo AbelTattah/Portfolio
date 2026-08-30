@@ -34,3 +34,23 @@ body {
   background: var(--color-accent);
   color: #fff;
 }
+
+@keyframes shimmer {
+  0% {
+    background-position: -400px 0;
+  }
+  100% {
+    background-position: 400px 0;
+  }
+}
+
+.img-shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--color-night-soft) 25%,
+    #26262f 45%,
+    var(--color-night-soft) 65%
+  );
+  background-size: 800px 100%;
+  animation: shimmer 1.4s ease-in-out infinite;
+}

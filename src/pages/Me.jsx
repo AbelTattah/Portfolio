@@ -1,6 +1,27 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { cms } from "../cms.js";
 import { usePageMeta } from "../lib/meta.js";
+
+function MeImage({ src, alt }) {
+  const [loaded, setLoaded] = useState(false);
+  return (
+    <div className="relative w-full bg-night-soft">
+      <img
+        src={src}
+        alt={alt}
+        loading="lazy"
+        onLoad={() => setLoaded(true)}
+        onError={() => setLoaded(true)}
+        className={
+          "w-full transition-opacity duration-500 " +
+          (loaded ? "opacity-100" : "opacity-0")
+        }
+      />
+      {!loaded && <div className="img-shimmer absolute inset-0" aria-hidden="true" />}
+    </div>
+  );
+}
 
 function MeItem({ item }) {
   return (
@@ -14,12 +35,7 @@ function MeItem({ item }) {
           className="aspect-video w-full bg-night-soft"
         />
       ) : (
-        <img
-          src={item.src}
-          alt={item.caption || "Photo"}
-          loading="lazy"
-          className="w-full bg-night-soft"
-        />
+        <MeImage src={item.src} alt={item.caption || "Photo"} />
       )}
       {(item.caption || item.date) && (
         <figcaption className="px-4 py-3.5">
