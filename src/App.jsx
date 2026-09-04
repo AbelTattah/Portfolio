@@ -8,6 +8,7 @@ import Experience from "./pages/Experience.jsx";
 import Me from "./pages/Me.jsx";
 import ProjectDetail from "./pages/ProjectDetail.jsx";
 import NotFound from "./pages/NotFound.jsx";
+import Admin from "./pages/Admin.jsx";
 
 function ScrollManager() {
   const { pathname, hash } = useLocation();

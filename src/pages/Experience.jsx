@@ -85,128 +85,16 @@ export default function Experience() {
       </Link>
 
       {/* Header */}
-      <div className="mt-6 border-b border-line pb-8">
+      <div className="mt-6 pb-8">
         <div className="flex flex-wrap items-center justify-between gap-4">
           <h1 className="font-display text-3xl font-semibold tracking-tight sm:text-4xl">
             {xp.heading}
           </h1>
-          <div className="flex flex-wrap items-center gap-2">
-            <span className="rounded-full border border-line bg-surface px-3.5 py-1.5 text-xs font-semibold text-ink/70">
-              Full-Stack Developer · TypeScript
-            </span>
-            <span className="rounded-full border border-line bg-surface px-3.5 py-1.5 text-xs font-semibold text-ink/70">
-              {c.location}
-            </span>
-          </div>
-        </div>
-        <p className="mt-4 max-w-3xl leading-relaxed text-muted">{xp.intro}</p>
-      </div>
-
-      {/* Contact strip */}
-      <div className="flex flex-wrap gap-3 pt-6">
-        <span className="inline-flex items-center gap-2 rounded-full border border-line bg-surface px-4 py-2 text-sm font-medium">
-          <span className="text-accent">{icons.pin}</span>
-          {c.location}
-        </span>
-        <a
-          href={`mailto:${c.email}`}
-          className="inline-flex items-center gap-2 rounded-full border border-line bg-surface px-4 py-2 text-sm font-medium transition-colors hover:border-accent hover:text-accent"
-        >
-          <span className="text-accent">{icons.mail}</span>
-          {c.email}
-        </a>
-        <a
-          href={c.linkedin}
-          target="_blank"
-          rel="noreferrer"
-          className="inline-flex items-center gap-2 rounded-full border border-line bg-surface px-4 py-2 text-sm font-medium transition-colors hover:border-accent hover:text-accent"
-        >
-          <span className="text-accent">{icons.linkedin}</span>
-          {c.linkedinLabel}
-        </a>
-      </div>
-
-      {/* Summary + credentials */}
-      <div className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-[1.4fr_1fr]">
-        <div className="rounded-l border border-line bg-surface p-6 shadow-card">
-          <SectionHeader icon={icons.spark} title="Summary" />
-          <p className="mt-4 leading-relaxed text-ink/85">{xp.summary}</p>
-
-          <div className="mt-6 flex flex-wrap items-center gap-2">
-            {xp.topSkills.map((s) => (
-              <span
-                key={s}
-                className="rounded-md bg-accent-soft px-2.5 py-1 text-xs font-semibold text-accent"
-              >
-                {s}
-              </span>
-            ))}
-          </div>
-        </div>
-
-        <div className="space-y-6">
-          <div className="rounded-l border border-line bg-surface p-6 shadow-card">
-            <SectionHeader icon={icons.shield} title="Certifications" />
-            <ul className="mt-4 space-y-2.5">
-              {xp.certifications.map((c) => {
-                const name = typeof c === "string" ? c : c.name;
-                const url = typeof c === "string" ? "" : c.url || "";
-                const label = (
-                  <>
-                    <span className="mt-0.5 text-emerald-600">
-                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M20 6 9 17l-5-5" />
-                      </svg>
-                    </span>
-                    <span className="flex min-w-0 items-center gap-1.5 text-sm font-medium text-ink/85">
-                      {name}
-                      {url && (
-                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="shrink-0 text-muted">
-                          <path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                        </svg>
-                      )}
-                    </span>
-                  </>
-                );
-                return url ? (
-                  <li key={name}>
-                    <a
-                      href={url}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="flex items-start gap-2.5 transition-colors hover:text-accent"
-                    >
-                      {label}
-                    </a>
-                  </li>
-                ) : (
-                  <li key={name} className="flex items-start gap-2.5">
-                    {label}
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
-
-          <div className="rounded-l border border-line bg-surface p-6 shadow-card">
-            <SectionHeader icon={icons.globe} title="Languages" />
-            <div className="mt-4 flex flex-wrap gap-2">
-              {xp.languages.map((l) => (
-                <span
-                  key={l}
-                  className="rounded-md bg-paper px-2.5 py-1 text-xs font-semibold text-ink/70"
-                >
-                  {l}
-                </span>
-              ))}
-            </div>
-          </div>
         </div>
       </div>
-
+      
       {/* Timeline */}
       <section className="mt-12">
-        <SectionHeader icon={icons.briefcase} title="Work history" />
         <div className="relative mt-8 space-y-8 border-l border-line pl-6 sm:pl-8">
           {xp.roles.map((role) => (
             <article key={role.company + role.period} className="relative">
@@ -275,6 +163,67 @@ export default function Experience() {
           ))}
         </div>
       </section>
+
+            <div className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-[1.4fr_1fr]">
+        <div className="space-y-6">
+          <div className="rounded-l border border-line bg-surface p-6 shadow-card">
+            <SectionHeader icon={icons.shield} title="Certifications" />
+            <ul className="mt-4 space-y-2.5">
+              {xp.certifications.map((c) => {
+                const name = typeof c === "string" ? c : c.name;
+                const url = typeof c === "string" ? "" : c.url || "";
+                const label = (
+                  <>
+                    <span className="mt-0.5 text-emerald-600">
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M20 6 9 17l-5-5" />
+                      </svg>
+                    </span>
+                    <span className="flex min-w-0 items-center gap-1.5 text-sm font-medium text-ink/85">
+                      {name}
+                      {url && (
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="shrink-0 text-muted">
+                          <path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                        </svg>
+                      )}
+                    </span>
+                  </>
+                );
+                return url ? (
+                  <li key={name}>
+                    <a
+                      href={url}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="flex items-start gap-2.5 transition-colors hover:text-accent"
+                    >
+                      {label}
+                    </a>
+                  </li>
+                ) : (
+                  <li key={name} className="flex items-start gap-2.5">
+                    {label}
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+
+          <div className="rounded-l border border-line bg-surface p-6 shadow-card">
+            <SectionHeader icon={icons.globe} title="Languages" />
+            <div className="mt-4 flex flex-wrap gap-2">
+              {xp.languages.map((l) => (
+                <span
+                  key={l}
+                  className="rounded-md bg-paper px-2.5 py-1 text-xs font-semibold text-ink/70"
+                >
+                  {l}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

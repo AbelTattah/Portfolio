@@ -2,11 +2,11 @@
   "site": {
     "name": "Abel Mawunyo Tattah",
     "shortName": "Abel Tattah",
-    "role": "Full-stack Developer & Product Builder",
+    "role": "Full-stack Developer ",
     "logo": "/images/logo.png",
     "email": "abeltattahh@gmail.com",
     "location": "Greater Accra, Ghana",
-    "availability": "Available for freelance & commission work",
+    "availability": "Available for freelance work",
     "socials": [
       {
         "label": "Email",
@@ -25,7 +25,7 @@
     "masthead": {
       "eyebrow": "Software Products, Engineered End-to-End",
       "headline": "I don't just write code. I design, build, deploy and ship software products.",
-      "subhead": "Curated apps, platforms and experiments — built with care from first sketch to production. Some are live. A few are for sale.",
+      "subhead": "Curated apps, platforms and experiments built with care from first sketch to production. Some are live. A few are for sale.",
       "primaryCta": {
         "label": "Browse the gallery",
         "url": "#gallery"
@@ -153,7 +153,7 @@
     {
       "slug": "zo-ride",
       "name": "Zo Ride",
-      "tagline": "Modern, reliable ride-hailing for African cities.",
+      "tagline": "Modern ride hailing app.",
       "category": "Mobility",
       "type": "Mobile App",
       "status": "acquisition",
@@ -163,7 +163,7 @@
       "gallery": [
         "/images/zo.png"
       ],
-      "overview": "Zo Ride is a ride-hailing platform designed around the realities of African urban transport — flexible pricing, motorbike options, cash support and low-data mode. Driver and rider apps, plus a dispatch dashboard.",
+      "overview": "Zo Ride is a ride-hailing platform designed for high affordable pricing, motorbike options, cash support and low-data mode. Driver and rider apps, plus a dispatch dashboard.",
       "problem": "Existing ride-hailing apps are built for global markets and miss local needs: motorbikes, cash payments, shared rides and unreliable connectivity. Riders end up with impractical options and drivers lose earnings.",
       "features": [
         "Rider and driver mobile apps",
@@ -236,7 +236,7 @@
   ],
   "experience": {
     "heading": "Experience & Credentials",
-    "intro": "A full-stack TypeScript developer with hands-on delivery across ride-hailing, fintech and project-management software.",
+    "intro": "",
     "summary": "Hi, I am Abel. I am currently a Full-Stack TypeScript Developer who specializes in React Native, React and NodeJS. I have had the opportunity to work as a full stack developer on ride hailing, fintech and project management software projects and these experiences have shaped the way I think.",
     "contact": {
       "location": "Accra, Ghana",
@@ -371,7 +371,7 @@
       {
         "type": "image",
         "src": "/images/Me now.png",
-        "caption": "Me now",
+        "caption": "",
         "date": ""
       },
       {

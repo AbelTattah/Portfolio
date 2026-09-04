@@ -19,11 +19,6 @@ export default function ProjectCard({ project }) {
             className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/25 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
             aria-hidden="true"
           />
-          {project.statusLabel && (
-            <div className="pointer-events-none absolute left-3 top-3">
-              <StatusBadge project={project} />
-            </div>
-          )}
           {hasVideo && (
             <div
               className="pointer-events-none absolute bottom-3 right-3 flex h-9 w-9 items-center justify-center rounded-full bg-black/45 text-white ring-1 ring-white/30 backdrop-blur-sm transition-colors duration-300 group-hover:bg-black/70"
