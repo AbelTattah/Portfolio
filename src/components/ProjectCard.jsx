@@ -8,7 +8,7 @@ export default function ProjectCard({ project }) {
   return (
     <article
       className={
-        "group relative overflow-hidden rounded-2xl border border-line bg-surface shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-lift " +
+        "group relative overflow-hidden rounded-l border border-line bg-surface shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-lift " +
         (featured ? "sm:col-span-2" : "")
       }
     >

@@ -49,7 +49,7 @@ function ListField({ label, value, onChange, hint }) {
 
 function Group({ title, children }) {
   return (
-    <section className="rounded-2xl border border-line bg-surface p-5 shadow-card sm:p-6">
+    <section className="rounded-l border border-line bg-surface p-5 shadow-card sm:p-6">
       <h2 className="font-display text-base font-semibold">{title}</h2>
       <div className="mt-4 space-y-4">{children}</div>
     </section>
@@ -647,7 +647,7 @@ function ProjectsPanel({ value, onChange }) {
       ))}
 
       {value.length === 0 && (
-        <p className="rounded-2xl border border-dashed border-line p-8 text-center text-muted">
+        <p className="rounded-l border border-dashed border-line p-8 text-center text-muted">
           No products yet — add one to start the gallery.
         </p>
       )}
@@ -681,7 +681,7 @@ function ProjectEditor({ index, project, count, onUpdate, onMove, onDelete }) {
   }
 
   return (
-    <section className="rounded-2xl border border-line bg-surface shadow-card">
+    <section className="rounded-l border border-line bg-surface shadow-card">
       <header className="flex flex-wrap items-center gap-3 border-b border-line px-5 py-4">
         <button
           type="button"
@@ -1092,7 +1092,7 @@ function MePanel({ value, onChange }) {
         ))}
 
         {items.length === 0 && (
-          <p className="rounded-2xl border border-dashed border-line p-8 text-center text-muted">
+          <p className="rounded-l border border-dashed border-line p-8 text-center text-muted">
             No pictures or clips yet — add one to start the gallery.
           </p>
         )}

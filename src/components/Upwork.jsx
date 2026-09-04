@@ -122,7 +122,7 @@ export function WorkWithConfidence({ className = "" }) {
   return (
     <details
       className={
-        "group rounded-2xl border border-line bg-surface shadow-card " + className
+        "group rounded-l border border-line bg-surface shadow-card " + className
       }
     >
       <summary className="flex cursor-pointer list-none items-center justify-between gap-3 px-6 py-5 [&::-webkit-details-marker]:hidden">

@@ -63,45 +63,6 @@ export default function Home() {
       {/* The gallery — the dominant element */}
       <section id="gallery" className="scroll-mt-20">
         <div className="mx-auto max-w-6xl px-5 py-12 sm:px-8 sm:py-14">
-          <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-            <div>
-              <h2 className="font-display text-2xl font-semibold tracking-tight sm:text-3xl">
-                {h.galleryTitle}
-              </h2>
-              <p className="mt-2 max-w-xl text-sm leading-relaxed text-muted">
-                {h.galleryNote}
-              </p>
-            </div>
-
-            <div className="flex flex-wrap gap-2">
-              {h.filters.map((f) => {
-                const active = filter === f.id;
-                return (
-                  <button
-                    key={f.id}
-                    type="button"
-                    onClick={() => setFilter(f.id)}
-                    className={
-                      "rounded-full px-4 py-2 text-sm font-medium transition-all " +
-                      (active
-                        ? "bg-accent text-white shadow-card"
-                        : "border border-line bg-surface text-muted hover:border-accent/40 hover:text-ink")
-                    }
-                  >
-                    {f.label}
-                    <span
-                      className={
-                        "ml-1.5 text-xs " +
-                        (active ? "text-white/70" : "text-muted/60")
-                      }
-                    >
-                      {counts[f.id] || 0}
-                    </span>
-                  </button>
-                );
-              })}
-            </div>
-          </div>
 
           <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {visible.map((project) => (

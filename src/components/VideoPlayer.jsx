@@ -7,7 +7,7 @@ export default function VideoPlayer({ project, className = "" }) {
   return (
     <div
       className={
-        "relative aspect-video w-full overflow-hidden rounded-2xl bg-night ring-1 ring-line shadow-card " +
+        "relative aspect-video w-full overflow-hidden rounded-l bg-night ring-1 ring-line shadow-card " +
         className
       }
     >

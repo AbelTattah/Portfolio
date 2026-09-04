@@ -37,7 +37,7 @@ function MeItem({ item, onClick }) {
 
   if (item.type === "video") {
     return (
-      <figure className="mb-5 break-inside-avoid overflow-hidden rounded-2xl border border-line bg-surface shadow-card">
+      <figure className="mb-5 break-inside-avoid overflow-hidden rounded-l border border-line bg-surface shadow-card">
         <video
           src={item.src}
           controls
@@ -54,7 +54,7 @@ function MeItem({ item, onClick }) {
     <button
       type="button"
       onClick={onClick}
-      className="group mb-5 block w-full cursor-zoom-in break-inside-avoid overflow-hidden rounded-2xl border border-line bg-surface text-left shadow-card transition-shadow hover:shadow-lift"
+      className="group mb-5 block w-full cursor-zoom-in break-inside-avoid overflow-hidden rounded-l border border-line bg-surface text-left shadow-card transition-shadow hover:shadow-lift"
     >
       <MeImage src={item.src} alt={item.caption || "Photo"} />
       {caption}
@@ -193,7 +193,7 @@ export default function Me() {
           ))}
         </div>
       ) : (
-        <div className="mt-10 rounded-2xl border border-dashed border-line p-10 text-center">
+        <div className="mt-10 rounded-l border border-dashed border-line p-10 text-center">
           <p className="text-sm text-muted">
             No pictures or clips yet — add them from{" "}
             <Link to="/admin" className="font-medium text-accent hover:underline">

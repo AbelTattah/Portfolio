@@ -128,7 +128,7 @@ export default function Experience() {
 
       {/* Summary + credentials */}
       <div className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-[1.4fr_1fr]">
-        <div className="rounded-2xl border border-line bg-surface p-6 shadow-card">
+        <div className="rounded-l border border-line bg-surface p-6 shadow-card">
           <SectionHeader icon={icons.spark} title="Summary" />
           <p className="mt-4 leading-relaxed text-ink/85">{xp.summary}</p>
 
@@ -145,7 +145,7 @@ export default function Experience() {
         </div>
 
         <div className="space-y-6">
-          <div className="rounded-2xl border border-line bg-surface p-6 shadow-card">
+          <div className="rounded-l border border-line bg-surface p-6 shadow-card">
             <SectionHeader icon={icons.shield} title="Certifications" />
             <ul className="mt-4 space-y-2.5">
               {xp.certifications.map((c) => {
@@ -188,7 +188,7 @@ export default function Experience() {
             </ul>
           </div>
 
-          <div className="rounded-2xl border border-line bg-surface p-6 shadow-card">
+          <div className="rounded-l border border-line bg-surface p-6 shadow-card">
             <SectionHeader icon={icons.globe} title="Languages" />
             <div className="mt-4 flex flex-wrap gap-2">
               {xp.languages.map((l) => (
@@ -211,7 +211,7 @@ export default function Experience() {
           {xp.roles.map((role) => (
             <article key={role.company + role.period} className="relative">
               <span className="absolute -left-[30px] top-1.5 h-3 w-3 rounded-full bg-accent ring-4 ring-accent-soft sm:-left-[37px]" />
-              <div className="rounded-2xl border border-line bg-surface p-6 shadow-card">
+              <div className="rounded-l border border-line bg-surface p-6 shadow-card">
                 <div className="flex flex-wrap items-start justify-between gap-3">
                   <div>
                     <h3 className="font-display text-lg font-semibold tracking-tight">
@@ -264,7 +264,7 @@ export default function Experience() {
           {xp.education.map((e) => (
             <div
               key={e.school + e.period}
-              className="rounded-2xl border border-line bg-surface p-6 shadow-card"
+              className="rounded-l border border-line bg-surface p-6 shadow-card"
             >
               <h3 className="font-display text-lg font-semibold tracking-tight">
                 {e.school}

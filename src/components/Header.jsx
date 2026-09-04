@@ -16,7 +16,7 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-line/80 bg-paper/85 backdrop-blur-md">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3 sm:px-8">
+      <div className="mx-auto flex items-center justify-between px-5 py-3 sm:px-8">
         <Link
           to="/"
           className="flex min-w-0 items-center gap-2.5 rounded-lg transition-opacity hover:opacity-80"

@@ -174,7 +174,7 @@ export default function ProjectDetail() {
           </div>
 
           {/* Description box */}
-          <div className="mt-6 rounded-2xl border border-line bg-surface p-5 shadow-card sm:p-6">
+          <div className="mt-6 rounded-l border border-line bg-surface p-5 shadow-card sm:p-6">
             <h2 className="flex items-center gap-2.5 font-display text-base font-semibold tracking-tight">
               <span className="text-accent">{icons.box}</span>
               Overview
@@ -237,7 +237,7 @@ export default function ProjectDetail() {
               {stackGroups.map(([group, items]) => (
                 <div
                   key={group}
-                  className="rounded-2xl border border-line bg-surface p-5"
+                  className="rounded-l border border-line bg-surface p-5"
                 >
                   <p className="text-xs font-semibold uppercase tracking-wider text-muted">
                     {group}
@@ -255,7 +255,7 @@ export default function ProjectDetail() {
                 </div>
               ))}
               {project.tech && project.tech.length > 0 && (
-                <div className="rounded-2xl border border-line bg-surface p-5">
+                <div className="rounded-l border border-line bg-surface p-5">
                   <p className="text-xs font-semibold uppercase tracking-wider text-muted">
                     Highlights
                   </p>
@@ -300,7 +300,7 @@ export default function ProjectDetail() {
         <aside className="lg:sticky lg:top-20 lg:h-fit lg:self-start">
           <div className="space-y-6">
             {/* About card */}
-            <div className="rounded-2xl border border-line bg-surface p-5 shadow-card">
+            <div className="rounded-l border border-line bg-surface p-5 shadow-card">
               <div className="flex items-start justify-between gap-3">
                 <div>
                   <p className="font-display text-sm font-semibold">
