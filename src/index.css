@@ -1,10 +1,20 @@
-@import "tailwindcss";
+/* Tailwind is used only for the secondary (non-home) routes. Preflight is
+   intentionally omitted so it cannot override the Drake theme styles. */
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities);
+
+@font-face {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("/fonts/Inter-VariableFont.woff2") format("woff2");
+}
 
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
     sans-serif;
-  --font-display: "Space Grotesk", "Inter", ui-sans-serif, system-ui,
-    sans-serif;
+  --font-display: "Inter", ui-sans-serif, system-ui, sans-serif;
 
   --color-paper: #f6f5f1;
   --color-surface: #ffffff;
@@ -22,17 +32,473 @@
     0 24px 48px -16px rgba(23, 23, 27, 0.18);
 }
 
-html {
-  scroll-behavior: smooth;
+/* ---------- Theme tokens ----------
+   Every colour used by the site comes from these variables. Switching mode or
+   accent only changes the values below / --primary_color, never the rules. */
+:root {
+  --primary_color: #0f9b5e;
+  --color-accent: var(--primary_color);
+  --color-accent-soft: color-mix(in srgb, var(--primary_color) 12%, transparent);
 }
 
+html[data-theme="dark"] {
+  --theme-bg: #1f1f1f;
+  --theme-surface: #2a2a2a;
+  --theme-panel: #191919;
+  --theme-control-bg: #1f1f1f;
+  --theme-control-border: #575757;
+  --theme-heading: #ffffff;
+  --theme-text: #999999;
+  --theme-muted: #999999;
+  --theme-border: #565656;
+  --theme-dot: #656565;
+  --theme-tooltip-bg: #404042;
+  --theme-tooltip-text: #ffffff;
+  --theme-sidebar-bg: transparent;
+  --theme-sidebar-shadow: none;
+  --theme-card-bg: transparent;
+  --theme-tag-bg: #ffffff;
+  --theme-tag-text: #000000;
+  --theme-accent-text: #000000;
+}
+
+html[data-theme="light"] {
+  --theme-bg: #f6f5f1;
+  --theme-surface: #ffffff;
+  --theme-panel: #ffffff;
+  --theme-control-bg: #ffffff;
+  --theme-control-border: #d5d5d5;
+  --theme-heading: #17171b;
+  --theme-text: #6c6a63;
+  --theme-muted: #6c6a63;
+  --theme-border: #d5d5d5;
+  --theme-dot: #9a9a9a;
+  --theme-tooltip-bg: #17171b;
+  --theme-tooltip-text: #ffffff;
+  --theme-sidebar-bg: #ffffff;
+  --theme-sidebar-shadow: 0 12px 50px rgba(0, 0, 0, 0.07);
+  --theme-card-bg: #ffffff;
+  --theme-tag-bg: #17171b;
+  --theme-tag-text: #ffffff;
+  --theme-accent-text: #ffffff;
+}
+
+/* ---------- Theme-aware overrides of the Drake theme ---------- */
 body {
-  @apply bg-paper text-ink font-sans antialiased;
+  background: var(--theme-bg);
+  color: var(--theme-text);
+}
+a {
+  color: var(--primary_color);
+}
+::selection {
+  background: var(--primary_color);
+  color: #ffffff;
 }
 
-::selection {
-  background: var(--color-accent);
-  color: #fff;
+.page-loader {
+  background: var(--theme-bg);
+}
+.page-loader .bounceball:before {
+  background-color: var(--theme-heading);
+}
+
+.icon-menu,
+.dmenu {
+  background: var(--theme-control-bg);
+  border-color: var(--theme-control-border);
+}
+.global-color .setting-toggle {
+  background: var(--theme-control-bg);
+}
+.icon-menu span {
+  background: var(--theme-heading);
+}
+.icon-menu:hover span {
+  background: var(--primary_color);
+}
+.global-color .setting-toggle,
+.global-color .close-settings,
+.responsive-sidebar-menu .close-settings {
+  color: var(--theme-heading);
+}
+.dmenu li .scroll-to,
+.dmenu li a {
+  color: var(--theme-text);
+}
+.dmenu li .scroll-to span,
+.dmenu li a span {
+  background: var(--theme-tooltip-bg);
+  color: var(--theme-tooltip-text);
+}
+.dmenu li .scroll-to span::before,
+.dmenu li a span::before {
+  background: var(--theme-tooltip-bg);
+}
+.responsive-sidebar-menu .sidebar-menu-inner {
+  background: var(--theme-panel);
+}
+.responsive-sidebar-menu
+  .sidebar-menu-inner
+  .menu-wrap
+  .dmenu
+  li
+  a
+  span {
+  color: var(--theme-text);
+}
+.responsive-sidebar-menu
+  .sidebar-menu-inner
+  .menu-wrap
+  .dmenu
+  li
+  a.active
+  span {
+  color: var(--theme-heading);
+}
+.responsive-sidebar-menu
+  .sidebar-menu-inner
+  .sidebar-social
+  ul
+  li
+  a {
+  color: var(--theme-text);
+}
+
+.global-color .inner .global-color-option {
+  background: var(--theme-panel);
+}
+.global-color .inner .global-color-option h3,
+.global-color .inner .global-color-option-inner p,
+.global-color .inner .global-color-option .close-settings,
+.global-color .inner .global-color-option-inner .themes li a {
+  color: var(--theme-heading);
+}
+.global-color .inner .global-color-option-inner .themes li a::before {
+  background: var(--theme-heading);
+}
+
+.theme-btn {
+  color: var(--theme-accent-text);
+}
+.section-header h2,
+.hero-section .hero-content h1 {
+  color: var(--theme-heading);
+}
+.subtitle {
+  color: var(--theme-heading);
+  border-color: var(--theme-border);
+}
+.go-to-project-btn {
+  border-color: var(--theme-control-border);
+}
+.go-to-project-btn i {
+  color: var(--theme-heading);
+}
+
+.left-sidebar {
+  border-color: var(--theme-border);
+  background: var(--theme-sidebar-bg);
+  box-shadow: var(--theme-sidebar-shadow);
+}
+.left-sidebar .sidebar-header .designation,
+.left-sidebar h3 {
+  color: var(--theme-heading);
+}
+.left-sidebar .social-profile li a {
+  border-color: var(--theme-border);
+  color: var(--theme-text);
+}
+
+.resume-area .resume-content .resume-timeline .item::after {
+  background: var(--theme-border);
+}
+.resume-area .resume-content .resume-timeline .item::before {
+  background: var(--theme-dot);
+}
+.resume-area .resume-content .resume-timeline .item h3,
+.resume-area .resume-content .resume-timeline .item h3 a {
+  color: var(--theme-heading);
+}
+.resume-area .resume-content .resume-timeline .item p {
+  color: var(--theme-text);
+}
+
+.services-items .service-item {
+  border-color: var(--theme-border);
+  background: var(--theme-card-bg);
+}
+.services-items .service-item h3,
+.services-items .service-item h3 a,
+.services-items .service-item .projects {
+  color: var(--theme-heading);
+}
+.services-items .service-item p {
+  color: var(--theme-text);
+}
+
+.skills .skill .skill-inner {
+  border-color: var(--theme-border);
+  background: var(--theme-card-bg);
+}
+.skills .skill p {
+  color: var(--theme-heading);
+}
+
+/* These two logos are white artwork designed for the dark theme. */
+html[data-theme="light"] .skills .skill-inner img[src*="skill-react"],
+html[data-theme="light"] .skills .skill-inner img[src*="skill-wordpress"] {
+  filter: brightness(0) saturate(100%) opacity(0.85);
+}
+
+.portfolio-items .portfolio-item h3 a {
+  color: var(--theme-heading);
+}
+.portfolio-items .portfolio-item:hover h3 a {
+  border-color: var(--theme-heading);
+}
+.portfolio-items
+  .portfolio-item
+  .portfolio-item-inner
+  .portfolio-categories
+  li
+  a {
+  background: var(--theme-tag-bg);
+  color: var(--theme-tag-text);
+}
+
+.contact-area .contact-content h3,
+.copyright a {
+  color: var(--theme-heading);
+}
+
+/* ---------- Secondary routes ---------- */
+.drake-route {
+  --color-paper: var(--theme-bg);
+  --color-surface: var(--theme-surface);
+  --color-ink: var(--theme-heading);
+  --color-muted: var(--theme-text);
+  --color-line: var(--theme-border);
+  background: var(--theme-bg);
+  color: var(--theme-text);
+  min-height: 100vh;
+
+  /* Same container as the home page's .custom-container */
+  max-width: 1130px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+.drake-route > div {
+  /* Same content column as the home page's .content-width */
+  max-width: 770px;
+  margin-left: auto;
+  margin-right: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+@media (max-width: 1220px) {
+  .drake-route {
+    max-width: 767px;
+  }
+  .drake-route > div {
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+/* Grid children must be allowed to shrink inside the content column */
+.drake-route .grid > * {
+  min-width: 0;
+}
+
+/* Typography — light-weight Drake headings instead of bold utility headings */
+.drake-route h1 {
+  font-size: clamp(38px, 5vw, 48px);
+  line-height: 1.25;
+  font-weight: 300;
+  letter-spacing: -0.2px;
+  color: var(--theme-heading);
+}
+.drake-route h2 {
+  font-size: clamp(24px, 3.4vw, 32px);
+  line-height: 1.3;
+  font-weight: 300;
+  color: var(--theme-heading);
+}
+.drake-route h3 {
+  font-size: 24px;
+  line-height: 1.35;
+  font-weight: 300;
+  color: var(--theme-heading);
+}
+.drake-route p {
+  line-height: 1.7;
+}
+
+/* Cards — Drake's bordered, radius-20 panels rather than Tailwind shadows */
+.drake-route .bg-surface {
+  background: var(--theme-card-bg);
+  border-color: var(--theme-border) !important;
+  box-shadow: none !important;
+}
+.drake-route .rounded-l.bg-surface {
+  border-radius: 20px !important;
+}
+.drake-route .shadow-card,
+.drake-route .shadow-lift {
+  box-shadow: none !important;
+}
+
+/* Buttons — Drake's .theme-btn */
+.drake-route a.bg-accent,
+.drake-route a.bg-emerald-600 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 11px 30px;
+  border: 2px solid var(--primary_color);
+  border-radius: 30px;
+  background: var(--primary_color);
+  color: var(--theme-accent-text);
+  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.2;
+  text-decoration: none;
+  transition: 0.3s;
+}
+.drake-route a.bg-accent:hover,
+.drake-route a.bg-emerald-600:hover {
+  background: transparent;
+  color: var(--primary_color);
+}
+
+/* Normalise the remaining green/blue utility colours to the active accent */
+.drake-route [class*="emerald"] {
+  color: var(--primary_color);
+}
+.drake-route [class*="bg-emerald-600"] {
+  background: var(--primary_color);
+  color: var(--theme-accent-text);
+}
+.drake-route [class*="bg-emerald-50"] {
+  background: color-mix(in srgb, var(--primary_color) 14%, transparent);
+  color: var(--primary_color);
+}
+
+/* Status chip */
+.theme-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 13px;
+  border-radius: 30px;
+  background: color-mix(in srgb, var(--primary_color) 14%, transparent);
+  box-shadow: inset 0 0 0 1px
+    color-mix(in srgb, var(--primary_color) 38%, transparent);
+  color: var(--primary_color);
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+.theme-chip-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--primary_color);
+}
+
+/* Bootstrap ships !important utility colors; bring them in line with the theme. */
+.drake-route .border {
+  border-color: var(--color-line) !important;
+}
+.drake-route .text-muted {
+  color: var(--color-muted) !important;
+}
+
+/* ---------- Configuration controls ---------- */
+.mode-boxed {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 60px;
+}
+.mode-boxed button {
+  font-family: inherit;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--theme-text);
+  background: transparent;
+  border: 1px solid var(--theme-border);
+  border-radius: 30px;
+  padding: 8px 24px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.mode-boxed button i {
+  margin-right: 8px;
+}
+.mode-boxed button.mode-active {
+  background: var(--primary_color);
+  border-color: var(--primary_color);
+  color: var(--theme-accent-text);
+}
+.mode-boxed button.mode-reset:hover {
+  color: var(--primary_color);
+  border-color: var(--primary_color);
+}
+
+.custom-color {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: -30px 0 60px;
+}
+.custom-color label {
+  font-size: 13px;
+  text-transform: uppercase;
+  color: var(--theme-heading);
+}
+.custom-color input[type="color"] {
+  width: 46px;
+  height: 46px;
+  padding: 0;
+  border: 1px solid var(--theme-border);
+  border-radius: 50%;
+  background: none;
+  cursor: pointer;
+}
+
+/* ---------- Scroll reveal animations ---------- */
+.scroll-animation.anim-ready {
+  opacity: 0;
+  transition:
+    opacity 1.2s cubic-bezier(0.165, 0.84, 0.44, 1),
+    transform 1.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+  will-change: opacity, transform;
+}
+.scroll-animation.anim-ready[data-animation="fade_from_bottom"] {
+  transform: translateY(180px);
+}
+.scroll-animation.anim-ready[data-animation="fade_from_top"] {
+  transform: translateY(-180px);
+}
+.scroll-animation.anim-ready[data-animation="fade_from_left"] {
+  transform: translateX(-180px);
+}
+.scroll-animation.anim-ready[data-animation="fade_from_right"] {
+  transform: translateX(180px);
+}
+.scroll-animation.anim-ready[data-animation="rotate_up"] {
+  transform: translateY(180px) rotate(10deg);
+}
+.scroll-animation.anim-ready.is-visible {
+  opacity: 1;
+  transform: none;
 }
 
 @keyframes shimmer {

@@ -1,4 +1,4 @@
-import { cms, phoneHref } from "../cms.js";
+import { cms } from "../cms.js";
 import { upworkUrl } from "./Upwork.jsx";
 
 export default function Footer() {
@@ -35,14 +35,6 @@ export default function Footer() {
                 {s.label}
               </a>
             ))}
-            {phoneHref() && (
-              <a
-                href={phoneHref()}
-                className="rounded-full border border-white/15 px-4 py-2 text-sm font-medium text-white/80 transition-colors hover:border-white/40 hover:text-white"
-              >
-                {cms.site.phoneLabel || cms.site.phone}
-              </a>
-            )}
             {upworkUrl() && (
               <a
                 href={upworkUrl()}

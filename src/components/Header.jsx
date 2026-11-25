@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { cms, phoneHref } from "../cms.js";
+import { cms } from "../cms.js";
 
 const NAV = [
   { label: "Work", to: { pathname: "/", hash: "gallery" } },
@@ -52,14 +52,6 @@ export default function Header() {
                 {githubSocial.label}
               </a>
             )}
-            {phoneHref() && (
-              <a
-                href={phoneHref()}
-                className="rounded-full bg-accent px-4 py-1.5 text-sm font-semibold text-white shadow-card transition-colors hover:bg-accent/90"
-              >
-                {cms.site.phoneLabel || "Call me"}
-              </a>
-            )}
           </nav>
 
           <button
@@ -104,14 +96,6 @@ export default function Header() {
                 className="rounded-xl px-4 py-3 text-[15px] font-medium text-ink transition-colors hover:bg-accent-soft hover:text-accent"
               >
                 {githubSocial.label}
-              </a>
-            )}
-            {phoneHref() && (
-              <a
-                href={phoneHref()}
-                className="mt-2 rounded-full bg-accent px-4 py-3 text-center text-sm font-semibold text-white shadow-card transition-colors hover:bg-accent/90"
-              >
-                {cms.site.phoneLabel || "Call me"}
               </a>
             )}
           </div>

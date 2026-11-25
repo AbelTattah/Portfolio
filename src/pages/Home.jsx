@@ -1,139 +1,314 @@
-import { useMemo, useState } from "react";
-import { cms, phoneHref } from "../cms.js";
+import { Link } from "react-router-dom";
+import { cms } from "../cms.js";
 import { usePageMeta } from "../lib/meta.js";
-import ProjectCard from "../components/ProjectCard.jsx";
-import {
-  upworkUrl,
-  UpworkAcquire,
-  WorkWithConfidence,
-} from "../components/Upwork.jsx";
 
-function matchFilter(project, filter) {
-  switch (filter) {
-    case "all":
-      return true;
-    case "acquisition":
-      return project.acquirable;
-    case "development":
-      return project.status === "development";
-    case "live":
-      return project.status === "live";
-    case "client":
-      return project.status === "client";
-    case "experiment":
-      return project.status === "experiment";
-    default:
-      return true;
-  }
+function SectionHeader({ icon, title, heading, as: Tag = "h2" }) {
+  return (
+    <div className="section-header">
+      <h4 className="subtitle scroll-animation" data-animation="fade_from_bottom">
+        <i className={icon}></i> {title}
+      </h4>
+      <Tag className="scroll-animation" data-animation="fade_from_bottom">
+        {heading}
+      </Tag>
+    </div>
+  );
 }
 
 export default function Home() {
-  const [filter, setFilter] = useState("all");
-
   usePageMeta({
-    title: "Abel Mawunyo Tattah — Software Products",
+    title: "abeltattah",
     description:
-      "I design, build, deploy and ship software products. Explore the gallery, watch the builds live, or acquire a product through Upwork.",
-    url: "https://abeltattah.vercel.app/",
+      "I like to solve problems with code. Software developer based in Accra, Ghana.",
+    url: "http://localhost:8080/wordpress/",
   });
 
-  const counts = useMemo(() => {
-    const map = { all: cms.projects.length };
-    for (const p of cms.projects) {
-      if (p.acquirable) map.acquisition = (map.acquisition || 0) + 1;
-      if (p.status) map[p.status] = (map[p.status] || 0) + 1;
-    }
-    return map;
-  }, []);
-
-  const visible = useMemo(() => {
-    const list = cms.projects.filter((p) => matchFilter(p, filter));
-    // featured first when browsing all
-    if (filter === "all") {
-      return [...list].sort((a, b) => Number(b.featured) - Number(a.featured));
-    }
-    return list;
-  }, [cms, filter]);
-
-  const h = cms.home;
-  const s = cms.site;
-
   return (
-    <div>
-      {/* The gallery — the dominant element */}
-      <section id="gallery" className="scroll-mt-20">
-        <div className="mx-auto max-w-6xl px-5 py-12 sm:px-8 sm:py-14">
-
-          <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {visible.map((project) => (
-              <ProjectCard key={project.slug} project={project} />
-            ))}
-          </div>
-
-          {visible.length === 0 && (
-            <p className="mt-16 text-center text-muted">
-              Nothing here yet — check another category.
-            </p>
-          )}
-        </div>
-      </section>
-
-      {/* Process / positioning */}
-      <section id="process" className="scroll-mt-20 bg-night text-white">
-        <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
-          <h2 className="font-display text-2xl font-semibold tracking-tight sm:text-3xl">
-            {h.howTitle}
-          </h2>
-          <div className="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            {h.howSteps.map((step) => (
-              <div key={step.step} className="border-t border-white/15 pt-5">
-                <span className="font-display text-sm font-semibold text-accent">
-                  {step.step}
-                </span>
-                <h3 className="mt-2 font-display text-lg font-semibold">
-                  {step.title}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-white/55">
-                  {step.text}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Closing CTA */}
-      <section id="contact" className="scroll-mt-20 border-b border-line">
-        <div className="mx-auto max-w-6xl px-5 py-16 text-center sm:px-8 sm:py-24">
-          <h2 className="mx-auto max-w-2xl font-display text-3xl font-semibold leading-tight tracking-tight sm:text-4xl">
-            {h.closingTitle}
-          </h2>
-          <p className="mx-auto mt-4 max-w-xl text-muted">{h.closingText}</p>
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-            {phoneHref() && (
+    <>
+      {/* Introduce */}
+      <section id="home" className="page-section scroll-to-page">
+        <div className="hero-section">
+          <div className="custom-container">
+            <div className="hero-content content-width">
+              <SectionHeader
+                as="h1"
+                icon="las la-home"
+                title="INTRODUCE"
+                heading={
+                  <>
+                    Hello from<span> Abel</span>, Software Developer
+                  </>
+                }
+              />
+              <p className="scroll-animation" data-animation="fade_from_bottom">
+                <span>I like to solve problems with code</span>
+              </p>
               <a
-                href={phoneHref()}
-                className="inline-flex items-center gap-2 rounded-full bg-accent px-7 py-3.5 text-sm font-semibold text-white shadow-card transition-colors hover:bg-accent/90"
+                href="#portfolio"
+                className="go-to-project-btn scroll-to scroll-animation"
+                data-animation="rotate_up"
               >
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" />
-                </svg>
-                {s.phoneLabel || "Call me"}
-                <span className="hidden font-medium text-white/80 sm:inline">· {s.phone}</span>
+                <img src="/images/drake-menu.jpg" alt="" />
+                <i className="las la-arrow-down"></i>
               </a>
-            )}
-            {upworkUrl() && (
-              <UpworkAcquire className="w-auto" />
-            )}
-          </div>
-          <p className="mt-6 text-xs text-muted">
-            {s.location} · {s.availability}
-          </p>
-          <div className="mx-auto mt-8 max-w-3xl text-left">
-            <WorkWithConfidence />
+              <div className="facts d-flex">
+                <div
+                  className="left scroll-animation"
+                  data-animation="fade_from_left"
+                >
+                  <h2>2</h2>
+                  <p>
+                    Years of <br />
+                    Experience
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
-    </div>
+
+      {/* About */}
+      <section id="about" className="page-section scroll-to-page">
+        <div className="about-area">
+          <div className="custom-container">
+            <div className="about-content content-width">
+              <SectionHeader
+                icon="lar la-user"
+                title="About"
+                heading={
+                  <>
+                    Every great software began with a<br /> <span> problem</span>
+                  </>
+                }
+              />
+              <p className="scroll-animation" data-animation="fade_from_bottom">
+                <span>
+                  I have had the opportunity to work as a full stack developer
+                  on ride hailing, fintech and project management software and
+                  these experiences have shaped the way I think.
+                </span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Resume */}
+      <section id="resume" className="page-section scroll-to-page">
+        <div className="resume-area">
+          <div className="custom-container">
+            <div className="resume-content content-width">
+              <SectionHeader
+                icon="las la-briefcase"
+                title="resume"
+                heading={
+                  <>
+                    Education & <span>Experience</span>
+                  </>
+                }
+              />
+              <div className="resume-timeline">
+                <div
+                  className="item scroll-animation"
+                  data-animation="fade_from_right"
+                >
+                  <span className="date">2023 - 2026</span>
+                  <h3>Full Stack Engineer</h3>
+                  <p>DuabaLabs</p>
+                  <h3>Full Stack Engineer</h3>
+                  <p>FORTUNE PORTFOLIO</p>
+                  <h3>Computer Science with Statistics</h3>
+                  <p>University of Ghana</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Services */}
+      <section id="services" className="page-section scroll-to-page">
+        <div className="services-area">
+          <div className="custom-container">
+            <div className="services-content content-width">
+              <SectionHeader
+                icon="las la-stream"
+                title="Services"
+                heading={
+                  <>
+                    My <span>Services</span>
+                  </>
+                }
+              />
+              <div className="services-items">
+                <div
+                  className="service-item scroll-animation"
+                  data-animation="fade_from_bottom"
+                >
+                  <i className="las la-bezier-curve"></i>
+                  <h3>Full Stack Mobile App Development</h3>
+                  <p>
+                    <span>I create seamless mobile experiences</span>
+                  </p>
+                  <span className="projects"></span>
+                </div>
+                <div
+                  className="service-item scroll-animation"
+                  data-animation="fade_from_bottom"
+                >
+                  <i className="las la-code"></i>
+                  <h3>Web Development</h3>
+                  <p>
+                    <span>I build websites with Nextjs or WordPress</span>
+                  </p>
+                  <span className="projects"></span>
+                </div>
+                <div
+                  className="service-item scroll-animation"
+                  data-animation="fade_from_bottom"
+                >
+                  <i className="las la-rocket"></i>
+                  <h3>Mobile App Design</h3>
+                  <p>
+                    <span>I design intuitive mobile app experiences</span>
+                  </p>
+                  <span className="projects"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Portfolio */}
+      <section id="portfolio" className="page-section scroll-to-page">
+        <div className="portfolio-area">
+          <div className="custom-container">
+            <div className="portfolio-content content-width">
+              <SectionHeader
+                icon="las la-grip-vertical"
+                title="Portolio"
+                heading=""
+              />
+              <div className="row portfolio-items">
+                {cms.projects.map((project) => (
+                  <div
+                    key={project.slug}
+                    className="scroll-animation"
+                    data-animation=""
+                  >
+                    <div className="portfolio-item portfolio-full">
+                      <div className="portfolio-item-inner">
+                        <Link to={`/products/${project.slug}`}>
+                          <img src={project.image} alt="" />
+                        </Link>
+                        <ul className="portfolio-categories"></ul>
+                      </div>
+                      <h3>
+                        <Link to={`/products/${project.slug}`}>
+                          {project.name}
+                        </Link>
+                      </h3>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Skills */}
+      <section id="skills" className="page-section scroll-to-page">
+        <div className="skills-area">
+          <div className="custom-container">
+            <div className="skills-content content-width">
+              <SectionHeader
+                icon="las la-shapes"
+                title="my skills"
+                heading={
+                  <>
+                    My <span>Advantages</span>
+                  </>
+                }
+              />
+              <div className="row skills text-center">
+                <div
+                  className="col-md-3 scroll-animation"
+                  data-animation="fade_from_right"
+                >
+                  <div className="skill">
+                    <div className="skill-inner">
+                      <img src="/images/skill-react.png" alt="" />
+                      <h2 className="percent">90%</h2>
+                    </div>
+                    <p className="name">React and React Native</p>
+                  </div>
+                </div>
+                <div
+                  className="col-md-3 scroll-animation"
+                  data-animation="fade_from_left"
+                >
+                  <div className="skill">
+                    <div className="skill-inner">
+                      <img src="/images/skill-figma.png" alt="" />
+                      <h2 className="percent">92%</h2>
+                    </div>
+                    <p className="name">Figma</p>
+                  </div>
+                </div>
+                <div
+                  className="col-md-3 scroll-animation"
+                  data-animation="fade_from_left"
+                >
+                  <div className="skill">
+                    <div className="skill-inner">
+                      <img src="/images/skill-wordpress.png" alt="" />
+                      <h2 className="percent">86%</h2>
+                    </div>
+                    <p className="name">WordPress</p>
+                  </div>
+                </div>
+                <div className="col-md-3 scroll-animation" data-animation="">
+                  <div className="skill">
+                    <div className="skill-inner">
+                      <img src="/images/skill-node.png" alt="" />
+                      <h2 className="percent">80%</h2>
+                    </div>
+                    <p className="name">Node js</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Anchor for the testimonial nav item (empty on the reference page) */}
+      <section id="testimonial" className="page-section scroll-to-page"></section>
+
+      {/* Contact */}
+      <section id="contact" className="page-section scroll-to-page">
+        <div className="contact-area">
+          <div className="custom-container">
+            <div className="contact-content content-width">
+              <SectionHeader
+                icon="lar la-envelope"
+                title="contact"
+                heading={
+                  <>
+                    Let's Work <span>Together!</span>
+                  </>
+                }
+              />
+              <h3 className="scroll-animation" data-animation="fade_from_bottom">
+                {cms.site.email}
+              </h3>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
   );
 }

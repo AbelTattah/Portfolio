@@ -101,56 +101,6 @@
   },
   "projects": [
     {
-      "slug": "flyerproai",
-      "name": "FlyerPro AI",
-      "tagline": "AI-powered flyer & promo design, in seconds.",
-      "category": "AI Product",
-      "type": "Web App",
-      "status": "acquisition",
-      "statusLabel": "Available for Acquisition",
-      "featured": false,
-      "image": "/images/flyerproai.svg",
-      "gallery": [
-        "/images/flyerproai.svg"
-      ],
-      "overview": "FlyerPro AI turns a plain-language prompt into polished flyers, posters and promo graphics. Users describe their offer — price, date, vibe — and get an on-brand design ready to print or post.",
-      "problem": "Small businesses, event promoters and creators can't afford a designer for every little promotion, and template builders still leave the design work — layout, hierarchy, colour — to them. Most people give up and ship a messy graphic.",
-      "features": [
-        "Prompt-to-flyer generation with layout and hierarchy baked in",
-        "Editable templates for print sizes and social formats",
-        "On-brand styling from a user's logo and colour palette",
-        "Instant export to PNG, PDF and social-ready formats",
-        "Thumbnail and A/B variant generation for campaigns"
-      ],
-      "tech": [
-        "React",
-        "Node.js",
-        "AI APIs",
-        "Canvas rendering"
-      ],
-      "stack": {
-        "Frontend": [
-          "React",
-          "Tailwind CSS"
-        ],
-        "Integrations": [
-          "Export pipeline",
-          "Asset library"
-        ],
-        "Backend": [
-          "Deno, Supabase, Paystack"
-        ]
-      },
-      "demo": "https://www.flyerproai.online/",
-      "repo": "",
-      "acquirable": true,
-      "priceNote": "Full product + codebase + assets. Right to brand and scale included.",
-      "year": "2026",
-      "video": "https://youtu.be/mrvdFRoOeFA",
-      "previewVideo": "",
-      "upwork": "https://www.upwork.com/services/product/development-it-ai-powered-flyer-promo-design-web-app-2094083735731026566?ref=project_share"
-    },
-    {
       "slug": "zo-ride",
       "name": "Zo Ride",
       "tagline": "Modern ride hailing app.",

@@ -6,42 +6,12 @@ import data from "../content/cms.json";
 // hot-reloaded by Vite here and flows straight into the public view.
 export const cms = data;
 
-export function phoneHref() {
-  const p = cms.site.phone;
-  return p ? `tel:+${p.replace(/[^0-9]/g, "")}` : "";
-}
-
 export const STATUS_META = {
-  acquisition: {
-    label: "Available for Acquisition",
-    dot: "bg-emerald-500",
-    text: "text-emerald-700",
-    chip: "bg-emerald-50 text-emerald-700 ring-emerald-600/15",
-  },
-  live: {
-    label: "Live",
-    dot: "bg-blue-500",
-    text: "text-blue-700",
-    chip: "bg-blue-50 text-blue-700 ring-blue-600/15",
-  },
-  development: {
-    label: "In Development",
-    dot: "bg-amber-500",
-    text: "text-amber-700",
-    chip: "bg-amber-50 text-amber-700 ring-amber-600/20",
-  },
-  client: {
-    label: "Client Project",
-    dot: "bg-violet-500",
-    text: "text-violet-700",
-    chip: "bg-violet-50 text-violet-700 ring-violet-600/15",
-  },
-  experiment: {
-    label: "Experiment",
-    dot: "bg-slate-400",
-    text: "text-slate-600",
-    chip: "bg-slate-100 text-slate-600 ring-slate-500/15",
-  },
+  acquisition: { label: "Available for Acquisition" },
+  live: { label: "Live" },
+  development: { label: "In Development" },
+  client: { label: "Client Project" },
+  experiment: { label: "Experiment" },
 };
 
 export const STATUS_OPTIONS = Object.entries(STATUS_META).map(
