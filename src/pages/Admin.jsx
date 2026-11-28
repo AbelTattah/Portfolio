@@ -342,12 +342,6 @@ function SitePanel({ value, onChange }) {
           onChange={set("phoneLabel")}
           hint="Defaults to the number itself."
         />
-        <Field
-          label="Upwork profile URL"
-          value={value.upwork || ""}
-          onChange={set("upwork")}
-          hint="Powers the 'Acquire through Upwork' button and the (i) verify icon, plus the Work With Confidence panel. Leave empty to hide them."
-        />
         <Field label="Location" value={value.location} onChange={set("location")} />
         <Field
           label="Availability"
@@ -482,9 +476,8 @@ function HomePanel({ value, onChange }) {
 
       <Group title="Filters (category chips)">
         <p className="text-sm text-muted">
-          Filters are matched by project fields:{" "}
-          <code className="rounded bg-paper px-1 text-xs">acquirable</code>,{" "}
-          <code className="rounded bg-paper px-1 text-xs">status</code>. Their
+          Filters are matched by the project{" "}
+          <code className="rounded bg-paper px-1 text-xs">status</code> field. Their
           labels live here.
         </p>
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
@@ -602,9 +595,6 @@ const defaultProject = {
   stack: { Frontend: ["React"] },
   demo: "",
   repo: "",
-  upwork: "",
-  acquirable: false,
-  priceNote: "",
   year: "2026",
 };
 
@@ -775,10 +765,11 @@ function ProjectEditor({ index, project, count, onUpdate, onMove, onDelete }) {
                   onUpdate({
                     ...project,
                     status: id,
-                    statusLabel: def ? def.label : project.statusLabel,
+                    statusLabel: def ? def.label : "",
                   });
                 }}
               >
+                <option value="">No status</option>
                 {STATUS_OPTIONS.map((o) => (
                   <option key={o.id} value={o.id}>
                     {o.label}
@@ -790,43 +781,9 @@ function ProjectEditor({ index, project, count, onUpdate, onMove, onDelete }) {
               label="Badge text (overrides status label)"
               value={project.statusLabel}
               onChange={set("statusLabel")}
-              hint="e.g. “Live on Google Play” or “In Development — Available for Acquisition”"
+              hint="e.g. “Live on Google Play” or “In Development”"
             />
           </div>
-
-          {/* Acquisition */}
-          <Group title="Acquisition">
-            <label className="flex cursor-pointer items-center gap-2.5 rounded-xl border border-line p-3.5">
-              <input
-                type="checkbox"
-                checked={!!project.acquirable}
-                onChange={(e) => set("acquirable")(e.target.checked)}
-                className="h-4 w-4 accent-emerald-600"
-              />
-              <span className="text-sm font-semibold">
-                {project.acquirable
-                  ? "This product is for sale"
-                  : "Not for sale"}
-              </span>
-            </label>
-            {project.acquirable && (
-              <>
-                <Field
-                  label="Upwork project link"
-                  value={project.upwork || ""}
-                  onChange={set("upwork")}
-                  hint="Deep link to this product's Upwork posting — powers the 'Acquire through Upwork' button. Leave empty to fall back to your Upwork profile URL."
-                />
-                <Field
-                  label="Price / what's included"
-                  textarea
-                  value={project.priceNote}
-                  onChange={set("priceNote")}
-                  hint="Shown in the acquire block on the product page."
-                />
-              </>
-            )}
-          </Group>
 
           {/* Copy */}
           <Group title="Copy">

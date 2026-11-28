@@ -23,7 +23,7 @@ Two ways to edit it:
 
 1. **The built-in editor** — open **`/#/admin`** on the running site.
    Edit site details, home-page copy, contact/footer text, and every product
-   (copy, media, status, tech stack, acquisition info). Hit **Save changes**
+   (copy, media, status, tech stack). Hit **Save changes**
    and it writes straight back to `content/cms.json`.
 
 2. **By hand** — edit the JSON directly.
@@ -44,7 +44,7 @@ Either way, because the public view imports `cms.json`:
 - **Home page** — masthead, gallery title/note, filter labels, process steps, closing CTA
 - **Projects** — every product: slug, name, tagline, category, type, status,
   badge text, cover image, gallery, overview, problem, features, tech stack,
-  demo/repo links, acquisition flag + price note, ordering, `featured` (wide card)
+  demo/repo links, ordering, `featured` (wide card)
 - **Contact** and **Footer** copy
 
 ### Project statuses
@@ -53,7 +53,6 @@ Either way, because the public view imports `cms.json`:
 
 | id            | Badge color | Used for                        |
 | ------------- | ----------- | ------------------------------- |
-| `acquisition` | green       | Available for Acquisition       |
 | `live`        | blue        | Live products                   |
 | `development` | amber       | In development                  |
 | `client`      | violet      | Client projects                 |

@@ -15,6 +15,34 @@ function SectionHeader({ icon, title, heading, as: Tag = "h2" }) {
   );
 }
 
+function Testimonial({ quote, author, role, skill, date, verified }) {
+  return (
+    <figure className="testimonial-item-inner">
+      <blockquote>
+        <p>“{quote}”</p>
+      </blockquote>
+      <figcaption className="author flex items-center">
+        <span className="author-initial" aria-hidden="true">
+          {author.charAt(0)}
+        </span>
+        <div>
+          <h3>{author}</h3>
+          {role && <p>{role}</p>}
+        </div>
+      </figcaption>
+      <ul className="testimonial-meta">
+        {skill && <li className="testimonial-skill">{skill}</li>}
+        <li>{date}</li>
+        {verified && (
+          <li className="testimonial-verified">
+            <i className="las la-check-circle" aria-hidden="true"></i> Verified
+          </li>
+        )}
+      </ul>
+    </figure>
+  );
+}
+
 export default function Home() {
   usePageMeta({
     title: "abeltattah",
@@ -51,7 +79,7 @@ export default function Home() {
                 <img src="/images/drake-menu.jpg" alt="" />
                 <i className="las la-arrow-down"></i>
               </a>
-              <div className="facts d-flex">
+              <div className="facts flex">
                 <div
                   className="left scroll-animation"
                   data-animation="fade_from_left"
@@ -191,7 +219,7 @@ export default function Home() {
                 title="Portolio"
                 heading=""
               />
-              <div className="row portfolio-items">
+              <div className="portfolio-items">
                 {cms.projects.map((project) => (
                   <div
                     key={project.slug}
@@ -219,6 +247,38 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Testimonials. Always rendered so the nav anchor keeps a target. */}
+      <section id="testimonial" className="page-section scroll-to-page">
+        {cms.testimonials?.length > 0 && (
+          <div className="testimonial-area">
+            <div className="custom-container">
+              <div className="testimonial-content content-width">
+                <SectionHeader
+                  icon="lar la-comment"
+                  title="testimonial"
+                  heading={
+                    <>
+                      What people <span>say</span>
+                    </>
+                  }
+                />
+                <div className="testimonial-list">
+                  {cms.testimonials.map((item) => (
+                    <div
+                      key={item.author}
+                      className="testimonial-item scroll-animation"
+                      data-animation="fade_from_bottom"
+                    >
+                      <Testimonial {...item} />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+      </section>
+
       {/* Skills */}
       <section id="skills" className="page-section scroll-to-page">
         <div className="skills-area">
@@ -233,9 +293,9 @@ export default function Home() {
                   </>
                 }
               />
-              <div className="row skills text-center">
+              <div className="skills grid grid-cols-2 gap-6 text-center md:grid-cols-4">
                 <div
-                  className="col-md-3 scroll-animation"
+                  className="scroll-animation"
                   data-animation="fade_from_right"
                 >
                   <div className="skill">
@@ -243,11 +303,11 @@ export default function Home() {
                       <img src="/images/skill-react.png" alt="" />
                       <h2 className="percent">90%</h2>
                     </div>
-                    <p className="name">React and React Native</p>
+                    <p className="name">React</p>
                   </div>
                 </div>
                 <div
-                  className="col-md-3 scroll-animation"
+                  className="scroll-animation"
                   data-animation="fade_from_left"
                 >
                   <div className="skill">
@@ -259,18 +319,18 @@ export default function Home() {
                   </div>
                 </div>
                 <div
-                  className="col-md-3 scroll-animation"
+                  className="scroll-animation"
                   data-animation="fade_from_left"
                 >
                   <div className="skill">
                     <div className="skill-inner">
-                      <img src="/images/skill-wordpress.png" alt="" />
-                      <h2 className="percent">86%</h2>
+                      <img src="/images/skill-react.png" alt="" />
+                      <h2 className="percent">90%</h2>
                     </div>
-                    <p className="name">WordPress</p>
+                    <p className="name">React Native</p>
                   </div>
                 </div>
-                <div className="col-md-3 scroll-animation" data-animation="">
+                <div className="scroll-animation" data-animation="">
                   <div className="skill">
                     <div className="skill-inner">
                       <img src="/images/skill-node.png" alt="" />
@@ -284,9 +344,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* Anchor for the testimonial nav item (empty on the reference page) */}
-      <section id="testimonial" className="page-section scroll-to-page"></section>
 
       {/* Contact */}
       <section id="contact" className="page-section scroll-to-page">

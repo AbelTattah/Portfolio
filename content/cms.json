@@ -13,7 +13,6 @@
         "url": "mailto:abeltattahh@gmail.com"
       }
     ],
-    "upwork": "https://www.upwork.com/freelancers/~01fc0b183df7bb3ac7?mp_source=share",
     "phone": "+233248252770",
     "phoneLabel": "Call me",
     "banner": {
@@ -25,7 +24,7 @@
     "masthead": {
       "eyebrow": "Software Products, Engineered End-to-End",
       "headline": "I don't just write code. I design, build, deploy and ship software products.",
-      "subhead": "Curated apps, platforms and experiments built with care from first sketch to production. Some are live. A few are for sale.",
+      "subhead": "Curated apps, platforms and experiments built with care from first sketch to production. Some are live.",
       "primaryCta": {
         "label": "Browse the gallery",
         "url": "#gallery"
@@ -36,15 +35,11 @@
       }
     },
     "galleryTitle": "Product Gallery",
-    "galleryNote": "Click any product to explore it in depth, see it running, or discuss acquiring it.",
+    "galleryNote": "Click any product to explore it in depth or see it running.",
     "filters": [
       {
         "id": "all",
         "label": "All"
-      },
-      {
-        "id": "acquisition",
-        "label": "For acquisition"
       },
       {
         "id": "live",
@@ -83,15 +78,15 @@
       {
         "step": "04",
         "title": "Ship",
-        "text": "Live products users can touch today — or acquire and scale."
+        "text": "Live products users can touch today."
       }
     ],
-    "closingTitle": "Have a product idea — or want to acquire one of mine?",
-    "closingText": "Let's talk. Whether you want to commission a build, discuss a product, or take one off my hands, calling works best."
+    "closingTitle": "Have a product idea?",
+    "closingText": "Let's talk. Whether you want to commission a build or discuss a product, calling works best."
   },
   "contact": {
     "title": "Let's build something worth shipping",
-    "text": "Open to commissions, product discussion and acquisition enquiries. I usually reply within a day.",
+    "text": "Open to commissions and product discussion. I usually reply within a day.",
     "emailLabel": "Email me",
     "locationLabel": "Based in Greater Accra, Ghana"
   },
@@ -106,8 +101,8 @@
       "tagline": "Modern ride hailing app.",
       "category": "Mobility",
       "type": "Mobile App",
-      "status": "acquisition",
-      "statusLabel": "Available for Acquisition",
+      "status": "",
+      "statusLabel": "",
       "featured": true,
       "image": "/images/zo.png",
       "gallery": [
@@ -140,8 +135,6 @@
       },
       "demo": "",
       "repo": "https://github.com/AbelTattah",
-      "acquirable": true,
-      "priceNote": "Codebase, product design and roadmap. Positioned for an operator or seed-stage team.",
       "year": "2026",
       "video": "https://youtu.be/BwKZnJVQgdY",
       "previewVideo": ""
@@ -177,11 +170,27 @@
       },
       "demo": "https://play.google.com/store/apps/details?id=com.zo.sua",
       "repo": "",
-      "acquirable": false,
-      "priceNote": "",
       "year": "2025",
       "video": "",
       "previewVideo": ""
+    }
+  ],
+  "testimonials": [
+    {
+      "quote": "Abel is highly experienced in building scalable, high-quality systems, and I say this from firsthand experience. His expertise, attention to detail, and ability to deliver reliable solutions truly stand out.",
+      "author": "Eben O.",
+      "role": "",
+      "skill": "",
+      "date": "May 2026",
+      "verified": true
+    },
+    {
+      "quote": "Great foresight and attentive to details.",
+      "author": "Ezra A.",
+      "role": "Full Stack Developer",
+      "skill": "Software Development",
+      "date": "Jan 2026",
+      "verified": true
     }
   ],
   "experience": {

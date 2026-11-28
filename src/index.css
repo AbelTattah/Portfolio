@@ -1,7 +1,8 @@
 /* Tailwind is used only for the secondary (non-home) routes. Preflight is
    intentionally omitted so it cannot override the Drake theme styles. */
 @import "tailwindcss/theme.css" layer(theme);
-@import "tailwindcss/utilities.css" layer(utilities);
+/* Unlayered so Tailwind utilities can override the theme's universal reset. */
+@import "tailwindcss/utilities.css";
 
 @font-face {
   font-family: Inter;
@@ -237,6 +238,9 @@ a {
   color: var(--theme-text);
 }
 
+.skills .skill {
+  margin-bottom: 0;
+}
 .skills .skill .skill-inner {
   border-color: var(--theme-border);
   background: var(--theme-card-bg);
@@ -245,9 +249,8 @@ a {
   color: var(--theme-heading);
 }
 
-/* These two logos are white artwork designed for the dark theme. */
-html[data-theme="light"] .skills .skill-inner img[src*="skill-react"],
-html[data-theme="light"] .skills .skill-inner img[src*="skill-wordpress"] {
+/* The React logo is white artwork designed for the dark theme. */
+html[data-theme="light"] .skills .skill-inner img[src*="skill-react"] {
   filter: brightness(0) saturate(100%) opacity(0.85);
 }
 
@@ -265,6 +268,98 @@ html[data-theme="light"] .skills .skill-inner img[src*="skill-wordpress"] {
   a {
   background: var(--theme-tag-bg);
   color: var(--theme-tag-text);
+}
+
+/* Testimonials: builds on the theme's .testimonial-item, stacked, not a slider. */
+.testimonial-area {
+  padding: 90px 0;
+}
+.testimonial-list {
+  display: grid;
+  gap: 24px;
+}
+.testimonial-item .testimonial-item-inner {
+  border-color: var(--theme-border);
+  background: var(--theme-card-bg);
+}
+/* Reset the theme's generic blockquote bar and italics. */
+.testimonial-item .testimonial-item-inner,
+.testimonial-item .testimonial-item-inner blockquote {
+  margin: 0;
+}
+.testimonial-item .testimonial-item-inner blockquote {
+  padding: 0;
+  border: 0;
+  background: none;
+  font-style: normal;
+}
+.testimonial-item .testimonial-item-inner blockquote p {
+  font-style: normal;
+  margin-bottom: 36px;
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 1.5;
+  color: var(--theme-heading);
+}
+.testimonial-item .testimonial-item-inner .author {
+  margin-bottom: 0;
+}
+.testimonial-item .author-initial {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--primary_color) 14%, transparent);
+  color: var(--primary_color);
+  font-size: 18px;
+}
+.testimonial-item .testimonial-item-inner .author h3 {
+  margin: 0;
+  color: var(--theme-heading);
+}
+.testimonial-item .testimonial-item-inner .author p {
+  margin-top: 6px;
+  color: var(--theme-text);
+}
+.testimonial-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 20px;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--theme-border);
+  font-size: 12px;
+  text-transform: uppercase;
+}
+.testimonial-meta .testimonial-skill {
+  color: var(--theme-heading);
+}
+.testimonial-meta .testimonial-verified {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: auto;
+  color: var(--primary_color);
+}
+.testimonial-verified i {
+  font-size: 16px;
+}
+@media (max-width: 584px) {
+  .testimonial-area {
+    padding: 50px 0;
+  }
+  .testimonial-item .testimonial-item-inner {
+    padding: 28px 22px;
+    border-radius: 24px;
+  }
+  .testimonial-item .testimonial-item-inner blockquote p {
+    margin-bottom: 26px;
+    font-size: 18px;
+  }
 }
 
 .contact-area .contact-content h3,

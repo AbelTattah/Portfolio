@@ -1,11 +1,12 @@
 import { STATUS_META } from "../cms.js";
 
 export function StatusBadge({ project }) {
-  const meta = STATUS_META[project.status] || STATUS_META.experiment;
+  const label = project.statusLabel || STATUS_META[project.status]?.label;
+  if (!label) return null;
   return (
     <span className="theme-chip">
       <span className="theme-chip-dot" />
-      {project.statusLabel || meta.label}
+      {label}
     </span>
   );
 }

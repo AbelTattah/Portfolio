@@ -7,7 +7,6 @@ import data from "../content/cms.json";
 export const cms = data;
 
 export const STATUS_META = {
-  acquisition: { label: "Available for Acquisition" },
   live: { label: "Live" },
   development: { label: "In Development" },
   client: { label: "Client Project" },

@@ -1,5 +1,4 @@
 import { cms } from "../cms.js";
-import { upworkUrl } from "./Upwork.jsx";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -35,16 +34,6 @@ export default function Footer() {
                 {s.label}
               </a>
             ))}
-            {upworkUrl() && (
-              <a
-                href={upworkUrl()}
-                target="_blank"
-                rel="noreferrer"
-                className="rounded-full border border-white/15 px-4 py-2 text-sm font-medium text-white/80 transition-colors hover:border-white/40 hover:text-white"
-              >
-                Upwork
-              </a>
-            )}
           </div>
         </div>
 

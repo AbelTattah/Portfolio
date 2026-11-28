@@ -10,9 +10,9 @@ const SECTIONS = [
   { id: "about", label: "About", icon: "lar la-user" },
   { id: "resume", label: "Resume", icon: "las la-briefcase" },
   { id: "services", label: "Services", icon: "las la-stream" },
-  { id: "skills", label: "Skills", icon: "las la-shapes" },
   { id: "portfolio", label: "Portfolio", icon: "las la-grip-vertical" },
   { id: "testimonial", label: "Testimonial", icon: "lar la-comment" },
+  { id: "skills", label: "Skills", icon: "las la-shapes" },
   { id: "contact", label: "Contact", icon: "lar la-envelope" },
 ];
 
@@ -44,7 +44,7 @@ function scrollToId(id) {
 function Sidebar({ onHire }) {
   return (
     <div className="left-sidebar">
-      <div className="sidebar-header d-flex align-items-center justify-content-between">
+      <div className="sidebar-header flex items-center justify-between">
         <img src="/images/drake-logo.png" alt="Logo" />
         <span className="designation">Software Developer</span>
       </div>
@@ -52,7 +52,7 @@ function Sidebar({ onHire }) {
       <h3 className="email">{cms.site.email}</h3>
       <h3 className="address">Based in Accra, Ghana.</h3>
       <p className="copyright">&copy; 2022 Abel Tattah. All Rights Reserved</p>
-      <ul className="social-profile d-flex align-items-center flex-wrap justify-content-center">
+      <ul className="social-profile flex flex-wrap items-center justify-center">
         {SOCIALS.map((icon) => (
           <li key={icon}>
             <a href="#" onClick={(e) => e.preventDefault()}>
@@ -70,7 +70,7 @@ function Sidebar({ onHire }) {
 
 function NavList({ responsive, activeId, onGo }) {
   return (
-    <ul className={`dmenu scroll-nav${responsive ? "-responsive" : ""} d-flex`}>
+    <ul className={`dmenu scroll-nav${responsive ? "-responsive" : ""} flex flex-col`}>
       {SECTIONS.map((s) => (
         <li key={s.id}>
           <a
@@ -275,7 +275,7 @@ export default function DrakeLayout({ children }) {
           </div>
           <div className="sidebar-social">
             <p>Social</p>
-            <ul className="social-links d-flex align-items-center">
+            <ul className="social-links flex items-center">
               {SOCIALS.slice(0, 3).map((icon) => (
                 <li key={icon}>
                   <a href="#" onClick={(e) => e.preventDefault()}>
