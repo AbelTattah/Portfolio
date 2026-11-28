@@ -1,4 +1,4 @@
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
 import { cms } from "../cms.js";
 import { usePageMeta } from "../lib/meta.js";
 import { StatusBadge } from "../components/StatusBadge.jsx";
@@ -33,7 +33,12 @@ export default function ProjectDetail() {
       : { title: "Page not found — Abel Tattah" }
   );
 
-  if (!project) return <NotFound />;
+  if (!project) {
+    // Links to a project's earlier name (slug) go to its current page.
+    const renamed = cms.projects.find((p) => p.aliases?.includes(slug));
+    if (renamed) return <Navigate to={`/products/${renamed.slug}`} replace />;
+    return <NotFound />;
+  }
 
   // Keyed by slug so players and disclosures reset between projects.
   return <ProjectView key={project.slug} project={project} />;

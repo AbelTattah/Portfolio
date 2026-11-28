@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-label="Todolist">
+  <rect width="1600" height="1000" fill="#c41a15"/>
+  <!-- The app icon's checklist, kept small and centred so cropped cards never clip it. -->
+  <g transform="translate(485.4 174.4) scale(2.2)">
+    <g fill="none" stroke="#fdfcfb" stroke-width="24" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M34 78 55 99 99 56"/>
+      <path d="M34 148 55 169 99 126"/>
+      <path d="M34 219 55 240 99 197"/>
+    </g>
+    <g fill="#fdfcfb">
+      <rect x="121" y="68" width="143" height="27" rx="13.5"/>
+      <rect x="121" y="137" width="143" height="27" rx="13.5"/>
+      <rect x="121" y="209" width="143" height="27" rx="13.5"/>
+    </g>
+  </g>
+</svg>

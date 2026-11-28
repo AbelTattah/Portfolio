@@ -140,25 +140,31 @@
       "previewVideo": ""
     },
     {
-      "slug": "sua",
-      "name": "Sua — Study Planner",
-      "tagline": "A student productivity app that actually sticks.",
+      "slug": "todolist",
+      "aliases": [
+        "sua"
+      ],
+      "name": "Todolist",
+      "tagline": "Daily planner for tasks and deadlines, with smart reminders and real alarms.",
       "category": "Productivity",
       "type": "Mobile App",
       "status": "live",
       "statusLabel": "Live on Google Play",
       "featured": false,
-      "image": "/images/sua.png",
+      "image": "/images/todolist.svg",
       "gallery": [
-        "/images/sua.png"
+        "/images/todolist.svg"
       ],
-      "overview": "Sua is a study-planning app that breaks semesters into daily, achievable sessions. Built for students who struggle with big workloads, it keeps plans realistic and progress visible.",
-      "problem": "Students over-plan and under-revise. Classic planners set them up to fail with unachievable schedules, and motivation dies when progress is invisible.",
+      "overview": "Todolist is a class schedule, task and planner app that brings your timetable, to-dos and events into one calm planning center. It suits students juggling lectures and deadlines, and part-timers balancing shifts with study.",
+      "problem": "When classes, shifts and personal tasks are scattered across different apps, things slip, like walking out of a lecture only to remember an assignment due tonight.",
       "features": [
-        "Semester-to-daily plan breakdown",
-        "Achievement-based session tracking",
-        "Reminder and streak system",
-        "Clean, distraction-light interface"
+        "Home dashboard with today's schedule, next class, events and to-dos",
+        "Weekly class and study schedule",
+        "Real alarms, with a heads-up 20 minutes before every class",
+        "One button to add a to-do, event or schedule entry",
+        "Works offline, with backup and restore through a shareable code",
+        "Light and dark themes, plus weekly activity insights",
+        "Premium unlocks unlimited entries, live class updates and distraction alerts"
       ],
       "tech": [
         "React"
